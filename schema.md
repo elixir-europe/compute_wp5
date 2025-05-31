@@ -54,6 +54,7 @@ Gives credit for the specific execution of a data analysis tool.
 |**report_format_version**|`any`|The version of the execution schema used.| &#10003; Yes|
 |**tool_identifier**|`string` `[1-*]`|Tool identifier from bio.tools, an RRID, or other source. Multiple identifiers can be supplied for tools known to multiple registries.| &#10003; Yes|
 |**tool_name**|`string`|What the tool author calls the tool.| &#10003; Yes|
+|**infra**|`provider` `[1-*]`|Physical and virtual infrastructure providers involved in the coordination, planning, and/or execution of this tool. Could be platforms, service providers, etc.| &#10003; Yes|
 |**tool_version**|`string`|Version of the tool that was actually run, ideally captured from the tool itself or a packaging system (apt, conda, pip, etc..).|No|
 |**tool_package_version**|`string`|Version of the tool as reported from a packaging system (apt, conda, pip, etc..).|No|
 |**start_time**|`string`|Time & date of the beginning of tool execution.|No|
@@ -68,7 +69,6 @@ Gives credit for the specific execution of a data analysis tool.
 |**final_outputs_size**|`integer`|Disk usage (bytes), MUST be (rounded or binned, details TBD).|No|
 |**number_of_gpu_cores_used**|`integer`||No|
 |**affiliation**|`string` `[]`|Identifier of the project associated with this tool execution. Ideally from the Research Organization Registry (ROR) https://ror.org/.|No|
-|**infra**|`provider` `[1-*]`|Physical and virtual infrastructure providers involved in the coordination, planning, and/or execution of this tool. Could be platforms, service providers, etc.| &#10003; Yes|
 |**location**|`object`|Physical location where the computer was. Don't really care more than city/country.|No|
 
 Additional properties are allowed.
@@ -94,6 +94,13 @@ Tool identifier from bio.tools, an RRID, or other source. Multiple identifiers c
 What the tool author calls the tool.
 
 * **Type**: `string`
+* **Required**:  &#10003; Yes
+
+### Tool execution report.infra
+
+Physical and virtual infrastructure providers involved in the coordination, planning, and/or execution of this tool. Could be platforms, service providers, etc.
+
+* **Type**: `provider` `[1-*]`
 * **Required**:  &#10003; Yes
 
 ### Tool execution report.tool_version
@@ -195,13 +202,6 @@ Identifier of the project associated with this tool execution. Ideally from the 
 
 * **Type**: `string` `[]`
 * **Required**: No
-
-### Tool execution report.infra
-
-Physical and virtual infrastructure providers involved in the coordination, planning, and/or execution of this tool. Could be platforms, service providers, etc.
-
-* **Type**: `provider` `[1-*]`
-* **Required**:  &#10003; Yes
 
 ### Tool execution report.location
 
