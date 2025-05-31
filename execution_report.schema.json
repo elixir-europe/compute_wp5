@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elixir-europe.org/platforms/compute/execution_report.schema.json",
+  "title": "Tool execution report",
+  "description": "Gives credit for the specific execution of a data analysis tool.",
+  "$vocabulary": {
+    "https://json-schema.org/draft/2020-12/vocab/format-assertion": true
+  },
+  "allOf": [
+    { "$ref": "https://json-schema.org/draft/2020-12/meta/format-assertion" }
+  ],
+  "type": "object",
+  "required": [ "report_format_version", "tool_identifier", "tool_name", "platform_name" ],
+  "properties": {
+     "report_format_version": {
+       "description": "The verison of the execution schema used.",
+       "enum": [ "0.0.1" ]
+     },
+     "tool_identifier": {
+       "description": "Tool identifier from bio.tools, an RRID, or other source. Multiple identifiers can be supplied for tools known to multiple registries.",
+       "type": "array",
+       "items": {
+         "type": "string",
+	 "format": "iri"
+       },
+       "minItems": 1
+       }
+     },
+     "tool_name": {
+       "description": "What the tool author calls the tool.",
+       "type": "string"
+     },
+     "tool_version": {
+       "description": "Version of the tool that was actually run, ideally captured from the tool itself or a packaging system (apt, conda, pip, etc..).",
+       "type": "string"
+     },
+     "tool_package_version": {
+       "description": "Version of the tool as reported from a packaging system (apt, conda, pip, etc..).",
+       "type": "string"
+     },
+     "start_time": {
+       "description": "Time & date of the beginning of tool execution.",
+       "type": "string",
+       "format": "date-time"
+     },
+     "end_time": {
+       "description": "Time & date of the end of tool execution.",
+       "type": "string",
+       "format": "date-time"
+     },
+     "memory_used": {
+       "description": "Peak memory usage, measured in bytes.",
+       "type": "integer",
+       "exclusiveMinimum": 0
+     },
+     "cpu_cores_assigned": {
+       "type": "integer"
+     },
+     "cpu_identifier": {
+       "type": "string"
+     },
+     "cpu_mods": {
+       "description": "For example, the 'bugs' field from /proc/cpuinfo on Linux.",
+       "type": "string"
+     },
+     "input_size": {
+       "type": "integer"
+     },
+     "final_outputs_size": {
+       "description": "Disk usage (bytes), MUST be (rounded or binned, details TBD).",
+       "type": "integer"
+     },
+     "number_of_gpu_cores_used": {
+       "type": "integer"
+     },
+     "platform_name": {
+       "description": "Where the tool was run (who should get credit for operating and maintaining the physical hardware where the tool ran).",
+       "type": "string"
+     },
+     "platform_identifier": {
+       "type": "array",
+       "items": {
+         "type": "string",
+	 "format": "iri"
+       }
+     },
+     "location": {
+       "description": "Physical location where the computer was. Don't really care more than city/country."
+     },
+     "service_provide_name": {
+       "type": "string"
+     },
+     "service_provide_identier": {
+       "type": "array",
+       "items": {
+         "type": "string",
+	 "format": "iri"
+       }
+     },
+     "tool_runner_name": {
+       "type": "string"
+     },
+     "tool_runner_identifier": {
+       "type": "array",
+       "items": {
+         "type": "string",
+	 "format": "iri"
+       }
+     },
+     "tool_runner_version": {
+       "type": "string"
+     },
+     "orchestrator_name": {
+       "type": "string"
+     },
+     "orchestrator_identifier": {
+       "type": "array",
+       "items": {
+         "type": "string",
+	 "format": "iri"
+       }
+     }
+  }
+}
+
+
