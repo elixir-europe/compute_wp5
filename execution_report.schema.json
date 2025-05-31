@@ -121,7 +121,7 @@
                "$comment": "https://schema.org/addressRegion",
                "type": "string"
              },
-             "addressLocatity": {
+             "addressLocality": {
                "description": "The locality in which the street address is, and which is in the region. For example, Freiburg im Breisgau",
                "$comment": "https://schema.org/addressLocality",
                "type": "string"
