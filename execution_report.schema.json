@@ -3,17 +3,11 @@
   "$id": "https://elixir-europe.org/platforms/compute/execution_report.schema.json",
   "title": "Tool execution report",
   "description": "Gives credit for the specific execution of a data analysis tool.",
-  "$vocabulary": {
-    "https://json-schema.org/draft/2020-12/vocab/format-assertion": true
-  },
-  "allOf": [
-    { "$ref": "https://json-schema.org/draft/2020-12/meta/format-assertion" }
-  ],
   "type": "object",
   "required": [ "report_format_version", "tool_identifier", "tool_name", "infra" ],
   "properties": {
      "report_format_version": {
-       "description": "The verison of the execution schema used.",
+       "description": "The version of the execution schema used.",
        "enum": [ "0.0.1" ]
      },
      "tool_identifier": {

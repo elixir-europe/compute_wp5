@@ -12,7 +12,7 @@
 |   |Type|Description|Required|
 |---|---|---|---|
 |**infra_name**|`string`|Name of the infrastructure (who should get credit).| &#10003; Yes|
-|**infra_indentifier**|`string` `[1-*]`|Unique identifier for this infrastructure.| &#10003; Yes|
+|**infra_identifier**|`string` `[1-*]`|Unique identifier for this infrastructure.| &#10003; Yes|
 |**infra_version**|`string`|For software-based infrastructure: the version.|No|
 
 Additional properties are allowed.
@@ -24,7 +24,7 @@ Name of the infrastructure (who should get credit).
 * **Type**: `string`
 * **Required**:  &#10003; Yes
 
-### provider.infra_indentifier
+### provider.infra_identifier
 
 Unique identifier for this infrastructure.
 
@@ -51,7 +51,7 @@ Gives credit for the specific execution of a data analysis tool.
 
 |   |Type|Description|Required|
 |---|---|---|---|
-|**report_format_version**|`any`|The verison of the execution schema used.| &#10003; Yes|
+|**report_format_version**|`any`|The version of the execution schema used.| &#10003; Yes|
 |**tool_identifier**|`string` `[1-*]`|Tool identifier from bio.tools, an RRID, or other source. Multiple identifiers can be supplied for tools known to multiple registries.| &#10003; Yes|
 |**tool_name**|`string`|What the tool author calls the tool.| &#10003; Yes|
 |**tool_version**|`string`|Version of the tool that was actually run, ideally captured from the tool itself or a packaging system (apt, conda, pip, etc..).|No|
@@ -75,7 +75,7 @@ Additional properties are allowed.
 
 ### Tool execution report.report_format_version
 
-The verison of the execution schema used.
+The version of the execution schema used.
 
 * **Type**: `any`
 * **Required**:  &#10003; Yes
