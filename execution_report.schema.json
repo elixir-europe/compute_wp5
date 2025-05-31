@@ -85,6 +85,14 @@
      "number_of_gpu_cores_used": {
        "type": "integer"
      },
+     "affiliation": {
+       "description": "Identifier of the project associated with this tool execution. Ideally from the Research Organization Registry (ROR) https://ror.org/.",
+       "type": "array",
+       "items": {
+         "type": "string",
+         "format": "iri"
+       }
+     },
      "infra": {
        "description": "Physical and virtual infrastructure providers involved in the coordination, planning, and/or execution of this tool. Could be platforms, service providers, etc.",
        "type": "array",
