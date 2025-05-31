@@ -10,6 +10,16 @@
        "description": "The version of the execution schema used.",
        "enum": [ "0.0.1" ]
      },
+
+     "affiliation": {
+       "description": "Identifier of the project associated with this tool execution. Ideally from the Research Organization Registry (ROR) https://ror.org/.",
+       "type": "array",
+       "items": {
+         "type": "string",
+         "format": "iri"
+       }
+     },
+
      "tool_identifier": {
        "description": "Tool identifier from bio.tools, an RRID, or other source. Multiple identifiers can be supplied for tools known to multiple registries.",
        "type": "array",
@@ -23,12 +33,6 @@
        "description": "What the tool author calls the tool.",
        "type": "string"
      },
-     "infra": {
-       "description": "Physical and virtual infrastructure providers involved in the coordination, planning, and/or execution of this tool. Could be platforms, service providers, etc.",
-       "type": "array",
-       "minItems": 1,
-       "items": { "$ref": "#/$defs/provider" }
-     },
      "tool_version": {
        "description": "Version of the tool that was actually run, ideally captured from the tool itself or a packaging system (apt, conda, pip, etc..).",
        "type": "string"
@@ -37,60 +41,16 @@
        "description": "Version of the tool as reported from a packaging system (apt, conda, pip, etc..).",
        "type": "string"
      },
-     "start_time": {
-       "description": "Time & date of the beginning of tool execution.",
-       "type": "string",
-       "format": "date-time"
-     },
-     "end_time": {
-       "description": "Time & date of the end of tool execution.",
-       "type": "string",
-       "format": "date-time"
-     },
-     "duration": {
-       "description": "Duration of tool execution. Using start_time & end_time is preferred.",
-       "type": "string",
-       "format": "duration"
-     },
-     "memory_used": {
-       "description": "Peak memory usage, measured in bytes.",
-       "type": "integer",
-       "exclusiveMinimum": 0
-     },
-     "cpu_cores_assigned": {
-       "description": "Number of CPU cores that were assigned to the tool.",
-       "type": "integer"
-     },
-     "cpu_cores_used": {
-       "description": "Measured number of CPU cores used.",
-       "type": "number"
-     },
-     "cpu_identifier": {
-       "description": "For example, the 'model name' field from /proc/cpuinfo on Linux.",
-       "type": "string"
-     },
-     "cpu_mods": {
-       "description": "For example, the 'bugs' field from /proc/cpuinfo on Linux.",
-       "type": "string"
-     },
      "input_size": {
        "description": "The total size of the inputs, MUST be (rounded or binned, details TBD).",
        "type": "integer"
      },
-     "final_outputs_size": {
-       "description": "Disk usage (bytes), MUST be (rounded or binned, details TBD).",
-       "type": "integer"
-     },
-     "number_of_gpu_cores_used": {
-       "type": "integer"
-     },
-     "affiliation": {
-       "description": "Identifier of the project associated with this tool execution. Ideally from the Research Organization Registry (ROR) https://ror.org/.",
+
+     "infra": {
+       "description": "Physical and virtual infrastructure providers involved in the coordination, planning, and/or execution of this tool. Could be platforms, service providers, etc.",
        "type": "array",
-       "items": {
-         "type": "string",
-         "format": "iri"
-       }
+       "minItems": 1,
+       "items": { "$ref": "#/$defs/provider" }
      },
      "location": {
        "description": "Physical location where the computer was. Don't really care more than city/country.",
@@ -129,6 +89,51 @@
            }
          }
        }
+     },
+     "cpu_identifier": {
+       "description": "For example, the 'model name' field from /proc/cpuinfo on Linux.",
+       "type": "string"
+     },
+     "cpu_mods": {
+       "description": "For example, the 'bugs' field from /proc/cpuinfo on Linux.",
+       "type": "string"
+     },
+     "cpu_cores_assigned": {
+       "description": "Number of CPU cores that were assigned to the tool.",
+       "type": "integer"
+     },
+
+     "start_time": {
+       "description": "Time & date of the beginning of tool execution.",
+       "type": "string",
+       "format": "date-time"
+     },
+     "end_time": {
+       "description": "Time & date of the end of tool execution.",
+       "type": "string",
+       "format": "date-time"
+     },
+     "duration": {
+       "description": "Duration of tool execution. Using start_time & end_time is preferred.",
+       "type": "string",
+       "format": "duration"
+     },
+
+     "final_outputs_size": {
+       "description": "Disk usage (bytes), MUST be (rounded or binned, details TBD).",
+       "type": "integer"
+     },
+     "memory_used": {
+       "description": "Peak memory usage, measured in bytes.",
+       "type": "integer",
+       "exclusiveMinimum": 0
+     },
+     "cpu_cores_used": {
+       "description": "Measured number of CPU cores used.",
+       "type": "number"
+     },
+     "number_of_gpu_cores_used": {
+       "type": "integer"
      }
    },
    "$defs": {
