@@ -132,7 +132,8 @@
        "description": "Measured number of CPU cores used.",
        "type": "number"
      },
-     "number_of_gpu_cores_used": {
+     "gpu_cores_used": {
+       "description": "Measured number of GPU cores used.",
        "type": "integer"
      }
    },

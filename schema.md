@@ -69,7 +69,7 @@ Gives credit for the specific execution of a data analysis tool.
 |**final_outputs_size**|`integer`|Disk usage (bytes), MUST be (rounded or binned, details TBD).|No|
 |**memory_used**|`integer`|Peak memory usage, measured in bytes.|No|
 |**cpu_cores_used**|`number`|Measured number of CPU cores used.|No|
-|**number_of_gpu_cores_used**|`integer`||No|
+|**gpu_cores_used**|`integer`|Measured number of GPU cores used.|No|
 
 Additional properties are allowed.
 
@@ -205,7 +205,9 @@ Measured number of CPU cores used.
 * **Type**: `number`
 * **Required**: No
 
-### Tool execution report.number_of_gpu_cores_used
+### Tool execution report.gpu_cores_used
+
+Measured number of GPU cores used.
 
 * **Type**: `integer`
 * **Required**: No
