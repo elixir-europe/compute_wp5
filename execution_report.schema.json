@@ -48,6 +48,11 @@
        "type": "string",
        "format": "date-time"
      },
+     "duration": {
+       "description": "Duration of tool execution. Using start_time & end_time is preferred.",
+       "type": "string",
+       "format": "duration"
+     },
      "memory_used": {
        "description": "Peak memory usage, measured in bytes.",
        "type": "integer",
