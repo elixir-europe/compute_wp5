@@ -21,7 +21,7 @@
        "type": "array",
        "items": {
          "type": "string",
-	 "format": "iri"
+         "format": "iri"
        },
        "minItems": 1
        }
@@ -88,7 +88,7 @@
        "type": "array",
        "items": {
          "type": "string",
-	 "format": "iri"
+         "format": "iri"
        }
      },
      "location": {
@@ -98,35 +98,35 @@
        "properties": {
          "name": {
            "description": "The name of the physical location where the computation took place.",
-	   "type": "string",
-	   "$comment": "https://schema.org/Text"
-	 },
-	 "address": {
+           "type": "string",
+           "$comment": "https://schema.org/Text"
+         },
+         "address": {
            "type": "object",
-	   "$comment": "https://schema.org/PostalAddress",
-	   "properties": {
+          "$comment": "https://schema.org/PostalAddress",
+          "properties": {
              "addressCountry": {
                "description": "Country. 2-letter ISO 3166-1 alpha-2 format.",
-	       "$comment": "https://schema.org/addressCountry",
-	       "type": "string"
-	     },
+               "$comment": "https://schema.org/addressCountry",
+               "type": "string"
+             },
              "postalCode": {
                "description": "The postal code. For example, 94017.",
-	       "$comment": "https://schema.org/postalCode",
-	       "type": "string"
-	     },
+               "$comment": "https://schema.org/postalCode",
+               "type": "string"
+             },
              "addressRegion": {
                "description": "The region in which the locality is, and which is in the country. For example, Baden Wuerttemburg or another appropriate first-level Administrative division. ",
-	       "$comment": "https://schema.org/addressRegion",
-	       "type": "string"
-	     },
+               "$comment": "https://schema.org/addressRegion",
+               "type": "string"
+             },
              "addressLocatity": {
                "description": "The locality in which the street address is, and which is in the region. For example, Freiburg im Breisgau",
-	       "$comment": "https://schema.org/addressLocality",
-	       "type": "string"
-	     }
-	   }
-	 }
+               "$comment": "https://schema.org/addressLocality",
+               "type": "string"
+             }
+           }
+         }
        }
      },
      "service_provide_name": {
@@ -136,7 +136,7 @@
        "type": "array",
        "items": {
          "type": "string",
-	 "format": "iri"
+         "format": "iri"
        }
      },
      "tool_runner_name": {
@@ -146,7 +146,7 @@
        "type": "array",
        "items": {
          "type": "string",
-	 "format": "iri"
+         "format": "iri"
        }
      },
      "tool_runner_version": {
@@ -159,7 +159,7 @@
        "type": "array",
        "items": {
          "type": "string",
-	 "format": "iri"
+         "format": "iri"
        }
      }
   }
