@@ -12,8 +12,6 @@
     "cpu_mods": "spectre_v1 spectre_v2 spec_store_bypass mds swapgs itlb_multihit srbds mmio_stale_data retbleed gds",
     "final_outputs_size": 192000,
     "number_of_gpu_cores_used": 0,
-    "platform_name": "de.NBI Cloud BW",
-    "platform_identifier": [ "???" ],
     "location": {
         "address": {
           "addressLocality": "Freiburg im Breisgau",
@@ -23,13 +21,21 @@
         },
         "name": "Albert Luedwigs Universitaet Freiburg"
       },
-    "service_provide_name": "Galaxy Europe",
-    "service_provide_identier": ["https://usegalaxy.eu"],
-    "tool_runner_name": "HTCondor",
-    "tool_runner_identifier": ["https://identifiers.org/RRID/RRID:SCR_017664"],
-    "tool_runner_version": "23.0.16",
-    "orchestrator_name": "Galaxy",
-    "orchestrator_identifier": [ "https://identifiers.org/RRID/RRID:SCR_006281" ],
-    "orchestrator_version": "24.1.2.dev0",
+    "infra": [
+      { "infra_name": "de.NBI Cloud BW",
+	"infra_identifier": "https://cloud.denbi.de/about/freiburg/"
+      },
+      { "infra_name": "Galaxy Europe",
+	"infra_identifier": "https://usegalaxy.eu"
+      },
+      { "infra_name": "HTCondor",
+	"infra_identifier": ["https://identifiers.org/RRID/RRID:SCR_017664"],
+        "infra_version": "23.0.16"
+      },
+      { "infra_name": "Galaxy",
+	"infra_identifier": [ "https://identifiers.org/RRID/RRID:SCR_006281" ],
+	"infra_version": "24.1.2.dev0"
+      }
+    ],
     "input_size": 50000
 }

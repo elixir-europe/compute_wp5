@@ -10,7 +10,7 @@
     { "$ref": "https://json-schema.org/draft/2020-12/meta/format-assertion" }
   ],
   "type": "object",
-  "required": [ "report_format_version", "tool_identifier", "tool_name", "platform_name" ],
+  "required": [ "report_format_version", "tool_identifier", "tool_name", "infra" ],
   "properties": {
      "report_format_version": {
        "description": "The verison of the execution schema used.",
@@ -85,15 +85,35 @@
      "number_of_gpu_cores_used": {
        "type": "integer"
      },
-     "platform_name": {
-       "description": "Where the tool was run (who should get credit for operating and maintaining the physical hardware where the tool ran).",
-       "type": "string"
-     },
-     "platform_identifier": {
+     "infra": {
+       "description": "Physical and virtual infrastructure providers involved in the coordination, planning, and/or execution of this tool. Could be platforms, service providers, etc.",
        "type": "array",
-       "items": {
-         "type": "string",
-         "format": "iri"
+       "minItems": 1,
+       "items": { "$ref": "#/$defs/provider" },
+       "$defs": {
+         "provider": {
+           "type": "object",
+           "required": [ "infra_name", "infra_indentifier" ],
+           "properties": {
+             "infra_name": {
+               "description": "Name of the infrastructure (who should get credit).",
+               "type": "string"
+             },
+             "infra_identifier": {
+               "description": "Unique identifier for this infrastructure.",
+               "type": "array",
+               "items": {
+                 "type": "string",
+                 "format": "iri"
+               },
+               "minItems": 1
+             },
+             "infra_version": {
+               "description": "For software-based infrastructure: the version.",
+               "type": "string"
+             }
+           }
+         }
        }
      },
      "location": {
@@ -132,39 +152,6 @@
              }
            }
          }
-       }
-     },
-     "service_provide_name": {
-       "type": "string"
-     },
-     "service_provide_identier": {
-       "type": "array",
-       "items": {
-         "type": "string",
-         "format": "iri"
-       }
-     },
-     "tool_runner_name": {
-       "type": "string"
-     },
-     "tool_runner_identifier": {
-       "type": "array",
-       "items": {
-         "type": "string",
-         "format": "iri"
-       }
-     },
-     "tool_runner_version": {
-       "type": "string"
-     },
-     "orchestrator_name": {
-       "type": "string"
-     },
-     "orchestrator_identifier": {
-       "type": "array",
-       "items": {
-         "type": "string",
-         "format": "iri"
        }
      }
   }
