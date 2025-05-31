@@ -15,13 +15,11 @@
     "platform_name": "de.NBI Cloud BW",
     "platform_identifier": [ "???" ],
     "location": {
-        "@type": "Place",
         "address": {
-          "@type": "PostalAddress",
           "addressLocality": "Freiburg im Breisgau",
           "addressRegion": "Baden Wuerttemburg",
           "postalCode": "94017",
-          "addressCountry": "Germany"
+          "addressCountry": "DE"
         },
         "name": "Albert Luedwigs Universitaet Freiburg"
       },

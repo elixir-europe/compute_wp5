@@ -54,9 +54,15 @@
        "exclusiveMinimum": 0
      },
      "cpu_cores_assigned": {
+       "description": "Number of CPU cores that were assigned to the tool.",
        "type": "integer"
      },
+     "cpu_cores_used": {
+       "description": "Measured number of CPU cores used.",
+       "type": "number"
+     },
      "cpu_identifier": {
+       "description": "For example, the 'model name' field from /proc/cpuinfo on Linux.",
        "type": "string"
      },
      "cpu_mods": {
@@ -64,6 +70,7 @@
        "type": "string"
      },
      "input_size": {
+       "description": "The total size of the inputs, MUST be (rounded or binned, details TBD).",
        "type": "integer"
      },
      "final_outputs_size": {
@@ -85,7 +92,42 @@
        }
      },
      "location": {
-       "description": "Physical location where the computer was. Don't really care more than city/country."
+       "description": "Physical location where the computer was. Don't really care more than city/country.",
+       "type": "object",
+       "$comment": "https://schema.org/Place",
+       "properties": {
+         "name": {
+           "description": "The name of the physical location where the computation took place.",
+	   "type": "string",
+	   "$comment": "https://schema.org/Text"
+	 },
+	 "address": {
+           "type": "object",
+	   "$comment": "https://schema.org/PostalAddress",
+	   "properties": {
+             "addressCountry": {
+               "description": "Country. 2-letter ISO 3166-1 alpha-2 format.",
+	       "$comment": "https://schema.org/addressCountry",
+	       "type": "string"
+	     },
+             "postalCode": {
+               "description": "The postal code. For example, 94017.",
+	       "$comment": "https://schema.org/postalCode",
+	       "type": "string"
+	     },
+             "addressRegion": {
+               "description": "The region in which the locality is, and which is in the country. For example, Baden Wuerttemburg or another appropriate first-level Administrative division. ",
+	       "$comment": "https://schema.org/addressRegion",
+	       "type": "string"
+	     },
+             "addressLocatity": {
+               "description": "The locality in which the street address is, and which is in the region. For example, Freiburg im Breisgau",
+	       "$comment": "https://schema.org/addressLocality",
+	       "type": "string"
+	     }
+	   }
+	 }
+       }
      },
      "service_provide_name": {
        "type": "string"
