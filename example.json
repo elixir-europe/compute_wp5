@@ -23,17 +23,17 @@
       },
     "infra": [
       { "infra_name": "de.NBI Cloud BW",
-	"infra_indentifier": [ "https://cloud.denbi.de/about/freiburg/" ]
+	"infra_identifier": [ "https://cloud.denbi.de/about/freiburg/" ]
       },
       { "infra_name": "Galaxy Europe",
-	"infra_indentifier": [ "https://usegalaxy.eu" ]
+	"infra_identifier": [ "https://usegalaxy.eu" ]
       },
       { "infra_name": "HTCondor",
-	"infra_indentifier": [ "https://identifiers.org/RRID/RRID:SCR_017664" ],
+	"infra_identifier": [ "https://identifiers.org/RRID/RRID:SCR_017664" ],
         "infra_version": "23.0.16"
       },
       { "infra_name": "Galaxy",
-	"infra_indentifier": [ "https://identifiers.org/RRID/RRID:SCR_006281" ],
+	"infra_identifier": [ "https://identifiers.org/RRID/RRID:SCR_006281" ],
 	"infra_version": "24.1.2.dev0"
       }
     ],

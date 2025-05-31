@@ -141,13 +141,13 @@
      "provider": {
        "title": "Infrastructure provider",
        "type": "object",
-       "required": [ "infra_name", "infra_indentifier" ],
+       "required": [ "infra_name", "infra_identifier" ],
        "properties": {
          "infra_name": {
            "description": "Name of the infrastructure (who should get credit).",
            "type": "string"
          },
-         "infra_indentifier": {
+         "infra_identifier": {
            "description": "Unique identifier for this infrastructure.",
            "type": "array",
            "items": {
