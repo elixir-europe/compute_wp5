@@ -1,5 +1,5 @@
-JSON format for Tool Execution Reporting
-========================================
+Credit for Tool Execution, JSON Schema
+======================================
 
 Sections
 --------
