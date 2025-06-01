@@ -1,41 +1,46 @@
 {
-    "report_format_version": "0.0.1",
-    "tool_identifier": [ "toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/0.7.18" , "https://bio.tools/bwa", "https://identifiers.org/RRID/RRID:SCR_010910" ],
-    "tool_name": "BWA",
-    "tool_version": "0.7.18",
-    "tool_package_version": "0.7.18-he4a0461_1",
-    "start_time": "2024-10-16T11:11:35",
-    "end_time": "2024-10-16T11:12:20",
-    "memory_used": 243059916,
-    "cpu_cores_assigned": 1,
-    "cpu_identifier": "Intel(R) Core(TM) i7-8565U CPU @ 1.80GHz",
-    "cpu_mods": "spectre_v1 spectre_v2 spec_store_bypass mds swapgs itlb_multihit srbds mmio_stale_data retbleed gds",
-    "final_outputs_size": 192000,
-    "number_of_gpu_cores_used": 0,
-    "location": {
-        "address": {
-          "addressLocality": "Freiburg im Breisgau",
-          "addressRegion": "Baden Wuerttemburg",
-          "postalCode": "94017",
-          "addressCountry": "DE"
-        },
-        "name": "Albert Luedwigs Universitaet Freiburg"
+  "report_format_version": "0.0.1",
+  "affiliation": [ "https://ror.org/044rwnt51" ],
+
+  "tool_identifier": [ "http://toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/0.7.18" , "https://bio.tools/bwa", "https://identifiers.org/RRID/RRID:SCR_010910" ],
+  "tool_name": "BWA",
+  "tool_version": "0.7.18",
+  "tool_package_version": "0.7.18-he4a0461_1",
+  "input_size": 50000,
+
+  "infra": [
+    { "infra_name": "de.NBI Cloud BW",
+      "infra_identifier": [ "https://cloud.denbi.de/about/freiburg/" ]
+    },
+    { "infra_name": "Galaxy Europe",
+      "infra_identifier": [ "https://usegalaxy.eu" ]
+    },
+    { "infra_name": "HTCondor",
+      "infra_identifier": [ "https://identifiers.org/RRID/RRID:SCR_017664" ],
+      "infra_version": "23.0.16"
+    },
+    { "infra_name": "Galaxy",
+      "infra_identifier": [ "https://identifiers.org/RRID/RRID:SCR_006281" ],
+      "infra_version": "24.1.2.dev0"
+    } ],
+  "location": {
+      "address": {
+        "addressLocality": "Freiburg im Breisgau",
+        "addressRegion": "Baden Wuerttemburg",
+        "postalCode": "94017",
+        "addressCountry": "DE"
       },
-    "infra": [
-      { "infra_name": "de.NBI Cloud BW",
-	"infra_identifier": [ "https://cloud.denbi.de/about/freiburg/" ]
-      },
-      { "infra_name": "Galaxy Europe",
-	"infra_identifier": [ "https://usegalaxy.eu" ]
-      },
-      { "infra_name": "HTCondor",
-	"infra_identifier": [ "https://identifiers.org/RRID/RRID:SCR_017664" ],
-        "infra_version": "23.0.16"
-      },
-      { "infra_name": "Galaxy",
-	"infra_identifier": [ "https://identifiers.org/RRID/RRID:SCR_006281" ],
-	"infra_version": "24.1.2.dev0"
-      }
-    ],
-    "input_size": 50000
+      "name": "Albert Luedwigs Universitaet Freiburg"
+    },
+  "cpu_cores_assigned": 1,
+  "cpu_identifier": "Intel(R) Core(TM) i7-8565U CPU @ 1.80GHz",
+  "cpu_mods": "spectre_v1 spectre_v2 spec_store_bypass mds swapgs itlb_multihit srbds mmio_stale_data retbleed gds",
+
+  "start_time": "2024-10-16T11:11:35",
+  "end_time": "2024-10-16T11:12:20",
+
+  "final_outputs_size": 192000,
+  "memory_used": 243059916,
+  "cpu_cores_used": 1,
+  "gpu_cores_used": 0
 }
