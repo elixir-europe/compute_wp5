@@ -1,6 +1,54 @@
 # Objects
 * [`Infrastructure provider`](#reference-provider)
+* [`Physical location`](#reference-location)
+    * [`Address`](#reference-address)
 * [`Tool execution report`](#reference-tool-execution-report) (root object)
+
+
+---------------------------------------
+<a name="reference-address"></a>
+## Address
+
+**`Address` Properties**
+
+|   |Type|Description|Required|
+|---|---|---|---|
+|**addressCountry**|`string`|Country. 2-letter ISO 3166-1 alpha-2 format.|No|
+|**postalCode**|`string`|The postal code. For example, 94017.|No|
+|**addressRegion**|`string`|The region in which the locality is, and which is in the country. For example, Baden Wuerttemburg or another appropriate first-level Administrative division. |No|
+|**addressLocality**|`string`|The locality in which the street address is, and which is in the region. For example, Freiburg im Breisgau|No|
+
+Additional properties are allowed.
+
+### address.addressCountry
+
+Country. 2-letter ISO 3166-1 alpha-2 format.
+
+* **Type**: `string`
+* **Required**: No
+
+### address.postalCode
+
+The postal code. For example, 94017.
+
+* **Type**: `string`
+* **Required**: No
+
+### address.addressRegion
+
+The region in which the locality is, and which is in the country. For example, Baden Wuerttemburg or another appropriate first-level Administrative division. 
+
+* **Type**: `string`
+* **Required**: No
+
+### address.addressLocality
+
+The locality in which the street address is, and which is in the region. For example, Freiburg im Breisgau
+
+* **Type**: `string`
+* **Required**: No
+
+
 
 
 ---------------------------------------
@@ -42,6 +90,36 @@ For software-based infrastructure: the version.
 
 
 ---------------------------------------
+<a name="reference-location"></a>
+## Physical location
+
+Physical location where the computer was. Don't really care more than city/country.
+
+**`Physical location` Properties**
+
+|   |Type|Description|Required|
+|---|---|---|---|
+|**name**|`string`|The name of the physical location where the computation took place.|No|
+|**address**|`address`||No|
+
+Additional properties are allowed.
+
+### location.name
+
+The name of the physical location where the computation took place.
+
+* **Type**: `string`
+* **Required**: No
+
+### location.address
+
+* **Type**: `address`
+* **Required**: No
+
+
+
+
+---------------------------------------
 <a name="reference-tool-execution-report"></a>
 ## Tool execution report
 
@@ -59,7 +137,7 @@ Gives credit for the specific execution of a data analysis tool.
 |**tool_package_version**|`string`|Version of the tool as reported from a packaging system (apt, conda, pip, etc..).|No|
 |**input_size**|`integer`|The total size of the inputs, MUST be (rounded or binned, details TBD).|No|
 |**infra**|`provider` `[1-*]`|Physical and virtual infrastructure providers involved in the coordination, planning, and/or execution of this tool. Could be platforms, service providers, etc.| &#10003; Yes|
-|**location**|`object`|Physical location where the computer was. Don't really care more than city/country.|No|
+|**location**|`location`|Physical location where the computer was. Don't really care more than city/country.|No|
 |**cpu_identifier**|`string`|For example, the 'model name' field from /proc/cpuinfo on Linux.|No|
 |**cpu_mods**|`string`|For example, the 'bugs' field from /proc/cpuinfo on Linux.|No|
 |**cpu_cores_assigned**|`integer`|Number of CPU cores that were assigned to the tool.|No|
@@ -135,7 +213,7 @@ Physical and virtual infrastructure providers involved in the coordination, plan
 
 Physical location where the computer was. Don't really care more than city/country.
 
-* **Type**: `object`
+* **Type**: `location`
 * **Required**: No
 
 ### Tool execution report.cpu_identifier
