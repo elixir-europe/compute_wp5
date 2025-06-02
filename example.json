@@ -32,9 +32,9 @@
       },
       "name": "Albert Luedwigs Universitaet Freiburg"
     },
-  "cpu_cores_assigned": 1,
   "cpu_identifier": "Intel(R) Core(TM) i7-8565U CPU @ 1.80GHz",
   "cpu_mods": "spectre_v1 spectre_v2 spec_store_bypass mds swapgs itlb_multihit srbds mmio_stale_data retbleed gds",
+  "cpu_cores_assigned": 1,
 
   "start_time": "2024-10-16T11:11:35",
   "end_time": "2024-10-16T11:12:20",
