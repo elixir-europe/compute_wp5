@@ -8,7 +8,7 @@
   "properties": {
     "report_format_version": {
       "description": "The version of the execution schema used.",
-      "enum": [ "0.0.1" ]
+      "enum": [ "0.0.2" ]
     },
 
     "affiliation": {

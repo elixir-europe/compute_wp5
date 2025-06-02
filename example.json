@@ -1,5 +1,5 @@
 {
-  "report_format_version": "0.0.1",
+  "report_format_version": "0.0.2",
   "affiliation": [ "https://ror.org/044rwnt51" ],
 
   "tool_identifier": [ "http://toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/0.7.18" , "https://bio.tools/bwa", "https://identifiers.org/RRID/RRID:SCR_010910" ],
