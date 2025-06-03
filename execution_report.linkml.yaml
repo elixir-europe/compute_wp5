@@ -1,0 +1,22 @@
+id: https://elixir-europe.org/platforms/compute/execution_report.linkml.yaml
+name: execution_report
+prefixes:
+  linkml: https://w3id.org/linkml/
+  report: https://w3id.example.com/execution_report#
+imports:
+  - linkml:types
+default_range: string
+default_prefix: report
+
+classes:
+  Report:
+    description: "Tool execution report. Gives credit for the specific execution of a data analysis tool."
+    attributes:
+      report_format_version:
+        description: "The version of the execution schema used."
+        pattern: "0.0.2"
+      tool_identifier:
+      tool_name:
+      infra:
+      tool_version:
+        slot_uri: schema:softwareVersion
