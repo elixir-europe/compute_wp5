@@ -1,6 +1,8 @@
 Credit for Tool Execution, JSON Schema
 ======================================
 
+A product of the ELIXIR Compute Platform, WP5 (2024-2026) “Sustainability, Accounting and Provenance for Federated Analytics“.
+
 Sections
 --------
 

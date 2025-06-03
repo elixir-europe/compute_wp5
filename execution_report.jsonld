@@ -1,0 +1,15 @@
+{
+"@context": {
+  "schema": "https://schema.org/",
+  "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+  "tool_version": {
+    "@id": "schema:softwareVersion",
+    "rdfs:comment": "Version of the tool that was actually run, ideally captured from the tool itself or a packaging system (apt, conda, pip, etc..)."
+  },
+  "tool_package_version": {
+    "@type": "schema:softwareVersion",
+    "rdfs:comment": "Version of the tool as reported by the package manager (apt, conda, pip, etc..)."
+  }
+}
+
+
