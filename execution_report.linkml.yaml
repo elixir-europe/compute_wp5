@@ -4,20 +4,28 @@ description: Gives credit for the specific execution of a data analysis tool.
 prefixes:
   linkml: https://w3id.org/linkml/
   report: https://w3id.example.com/execution_report#
+  schema: http://schema.org/
 imports:
   - linkml:types
 default_range: string
-default_prefix: report
+version: "0.0.2"
 
 classes:
   Provider:
-    description: Infrastructure provider
+    description: Infrastructure provider.
     attributes:
       infra_name:
+        description: |
+          Name of the infrastructure (who should get credit).
       infra_identifier:
+        description: |
+          Unique identifier for this infrastructure.
         multivalued: true
         inlined_as_list: true
       infra_version:
+        slot_uri: schema:softwareVersion
+        description: |
+          For software-based infrastructure: the version.
 
   Address:
     description: |
@@ -34,45 +42,82 @@ classes:
         slot_uri: schema:addressLocality
   Location:
     class_uri: schema:Place
+    description: |
+      Physical location where the computer was. Don't really care more than city/country.
     attributes:
       name:
+        slot_uri: schema:name
       address:
         range: Address
 
+  Tool:
+    class_uri: schema:SoftwareApplication
+    description: The data analysis tool that was executed, for which this tool execution report was generated about.
+    attributes:
+      name:
+        description: |
+          What the tool author calls the tool.
+        slot_uri: schema:name
+      identifier:
+        description: |
+          Tool identifier from bio.tools, an RRID, or other source. Multiple identifiers can be supplied for tools known to multiple registries
+        multivalued: true
+        inlined_as_list: true
+        slot_uri: schema:identifier
+        range: uri
+        # `identifier: true`, can't be used as there is more than 1
+      version:
+        slot_uri: schema:softwareVersion
+      package_version:
+        description: |
+          Version of the tool that was actually run, ideally captured from the tool itself or a packaging system (apt, conda, pip, etc..).
+        
   Report:
     description: "Tool execution report. Gives credit for the specific execution of a data analysis tool."
     tree_root: true
+    # https://schema.org/CreateAction ???
     attributes:
       report_format_version:
-        description: "The version of the execution schema used."
+        description: |
+          The version of the execution schema used.
         pattern: "0.0.2"
       affiliation:
+        description: |
+          Identifier of the project associated with this tool execution. Ideally from the Research Organization Registry (ROR) https://ror.org/.
+        slot_uri: schema:affiliation
         multivalued: true
         inlined_as_list: true
-      tool_identifier:
-        multivalued: true
-        inlined_as_list: true
-      tool_name:
-      tool_version:
-        slot_uri: schema:softwareVersion
-      tool_package_version:
-      input_size:
+      tool:
+        range: Tool
+      input_size_bytes:
+        description: |
+          The total size of the inputs in bytes, MUST be (rounded or binned, details TBD).
         range: integer
+        unit:
+          ucum_code: By # bytes
       infra:
         multivalued: true
         inlined_as_list: true
-        range: report:Provider
+        range: Provider
       location:
+        description: |
+          Physical location
         range: Location
       cpu_identifier:
       cpu_mods:
       cpu_cores_assigned:
         range: integer
       start_time:
+        range: datetime
+        slot_uri: schema:startTime
       end_time:
+        range: datetime
+        slot_uri: schema:endTime
       duration:
-      final_outputs_size:
+      final_outputs_size_bytes:
         range: integer
+        unit:
+          ucum_code: By
       memory_used:
         range: integer
       cpu_cores_used:
