@@ -1,6 +1,12 @@
 Credit for Tool Execution, JSON Schema
 ======================================
 
+Posters from the ELIXIR All Hands 2025 meeting
+
+- https://docs.google.com/presentation/d/1B2Xeb_BJuwEQxe2J05cmuM-Vtr07D7Eb8KbcyN0AwTw/edit?usp=drivesdk
+- https://drive.google.com/file/d/1DTE1wgxKJNyzZos-m7YHrMHHh0vSZO2M/view?usp=drivesdk
+- https://docs.google.com/presentation/d/1DaT4fq1OsLc5UJfj9m-stjpfIWFMla9dNp2TLVoTXgM/edit?usp=drivesdk
+
 Sections
 --------
 
