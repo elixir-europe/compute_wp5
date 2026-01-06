@@ -1,0 +1,43 @@
+{
+    "report_format_version": "0.0.1",
+    "tool_identifier": [
+        "Show beginning1"
+    ],
+    "tool_name": "Select first",
+    "tool_version": "1.0.2",
+    "tool_package_version": "",
+    "start_time": "2025-03-15T20:42:58.656017",
+    "end_time": "2025-03-15T20:43:47.631808",
+    "memory_assigned": "3.8G",
+    "memory_used": "",
+    "cpu_cores_assigned": "1",
+    "cpu_cores_used": "1",
+    "final_outputs_size": 5,
+    "number_of_gpu_cores_used": "0",
+    "platform_name": "",
+    "platform_identifier": "???",
+    "location": {
+        "@type": "Place",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "",
+            "addressRegion": "",
+            "postalCode": "",
+            "addressCountry": ""
+        },
+        "name": ""
+    },
+    "service_provide_name": "https://usegalaxy.be",
+    "service_provide_identier": "https://usegalaxy.be",
+    "tool_runner_name": "HTCondor",
+    "tool_runner_identifier": [
+        "https://identifiers.org/RRID/RRID:SCR_017664"
+    ],
+    "tool_runner_version": "",
+    "orchestrator_name": "Galaxy",
+    "orchestrator_identifier": [
+        "https://identifiers.org/RRID/RRID:SCR_006281"
+    ],
+    "orchestrator_version": "24.2.3.dev0",
+    "input_size": 5
+}
