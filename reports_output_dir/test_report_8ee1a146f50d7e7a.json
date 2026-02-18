@@ -1,0 +1,47 @@
+{
+    "report_format_version": "0.0.1",
+    "tool": {
+        "identifier": [
+            "https://bio.tools/",
+            "",
+            "toolshed.g2.bx.psu.edu/repos/iuc/snpeff_sars_cov_2/snpeff_sars_cov_2/4.5covid19"
+        ],
+        "name": "SnpEff eff:",
+        "version": "4.5covid19",
+        "package_version": "2a3a00c1fa0a"
+    },
+    "start_time": "2025-12-31T10:01:44.964319",
+    "end_time": "2025-12-31T10:02:02.561040",
+    "memory_used": 3891,
+    "cpu_cores_assigned": 1,
+    "cpu_cores_used": 1,
+    "final_outputs_size_bytes": 18506,
+    "gpu_cores_used": 0,
+    "location": {
+        "address": {
+            "addressLocality": "",
+            "addressRegion": "",
+            "postalCode": "",
+            "addressCountry": ""
+        },
+        "name": ""
+    },
+    "infra": [
+        {
+            "infra_name": "Galaxy",
+            "infra_identifier": "https://identifiers.org/RRID/RRID:SCR_006281",
+            "infra_version": "25.0.4.dev0"
+        },
+        {
+            "infra_name": "HTCondor",
+            "infra_identifier": "https://identifiers.org/RRID/RRID:SCR_017664",
+            "infra_version": "0.0.not_applicable"
+        },
+        {
+            "infra_name": "https://usegalaxy.be",
+            "infra_identifier": "https://usegalaxy.be",
+            "infra_version": "0.0.not_applicable"
+        }
+    ],
+    "input_size_bytes": 2194
+}

@@ -1,0 +1,47 @@
+{
+    "report_format_version": "0.0.1",
+    "tool": {
+        "identifier": [
+            "https://bio.tools/",
+            "",
+            "toolshed.g2.bx.psu.edu/repos/iuc/lofreq_filter/lofreq_filter/2.1.5+galaxy0"
+        ],
+        "name": "Lofreq filter",
+        "version": "2.1.5+galaxy0",
+        "package_version": "7dfca164d2e3"
+    },
+    "start_time": "2025-12-31T10:35:59.568292",
+    "end_time": "2025-12-31T10:36:46.703605",
+    "memory_used": 15564,
+    "cpu_cores_assigned": 1,
+    "cpu_cores_used": 1,
+    "final_outputs_size_bytes": 1482,
+    "gpu_cores_used": 0,
+    "location": {
+        "address": {
+            "addressLocality": "",
+            "addressRegion": "",
+            "postalCode": "",
+            "addressCountry": ""
+        },
+        "name": ""
+    },
+    "infra": [
+        {
+            "infra_name": "Galaxy",
+            "infra_identifier": "https://identifiers.org/RRID/RRID:SCR_006281",
+            "infra_version": "25.0.4.dev0"
+        },
+        {
+            "infra_name": "HTCondor",
+            "infra_identifier": "https://identifiers.org/RRID/RRID:SCR_017664",
+            "infra_version": "0.0.not_applicable"
+        },
+        {
+            "infra_name": "https://usegalaxy.be",
+            "infra_identifier": "https://usegalaxy.be",
+            "infra_version": "0.0.not_applicable"
+        }
+    ],
+    "input_size_bytes": 1242
+}

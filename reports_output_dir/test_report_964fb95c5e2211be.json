@@ -1,0 +1,47 @@
+{
+    "report_format_version": "0.0.1",
+    "tool": {
+        "identifier": [
+            "https://bio.tools/",
+            "",
+            "toolshed.g2.bx.psu.edu/repos/iuc/porechop/porechop/0.2.4+galaxy1"
+        ],
+        "name": "Porechop",
+        "version": "0.2.4+galaxy1",
+        "package_version": "a2899db6bd6e"
+    },
+    "start_time": "2025-12-29T09:44:43.186902",
+    "end_time": "2025-12-29T09:45:35.115438",
+    "memory_used": 20480,
+    "cpu_cores_assigned": 1,
+    "cpu_cores_used": 1,
+    "final_outputs_size_bytes": 31,
+    "gpu_cores_used": 0,
+    "location": {
+        "address": {
+            "addressLocality": "",
+            "addressRegion": "",
+            "postalCode": "",
+            "addressCountry": ""
+        },
+        "name": ""
+    },
+    "infra": [
+        {
+            "infra_name": "Galaxy",
+            "infra_identifier": "https://identifiers.org/RRID/RRID:SCR_006281",
+            "infra_version": "25.0.4.dev0"
+        },
+        {
+            "infra_name": "HTCondor",
+            "infra_identifier": "https://identifiers.org/RRID/RRID:SCR_017664",
+            "infra_version": "0.0.not_applicable"
+        },
+        {
+            "infra_name": "https://usegalaxy.be",
+            "infra_identifier": "https://usegalaxy.be",
+            "infra_version": "0.0.not_applicable"
+        }
+    ],
+    "input_size_bytes": 31
+}

@@ -1,0 +1,47 @@
+{
+    "report_format_version": "0.0.1",
+    "tool": {
+        "identifier": [
+            "https://bio.tools/",
+            "",
+            "toolshed.g2.bx.psu.edu/repos/devteam/bowtie2/bowtie2/2.5.4+galaxy0"
+        ],
+        "name": "Bowtie2",
+        "version": "2.5.4+galaxy0",
+        "package_version": "f76cbb84d67f"
+    },
+    "start_time": "2025-12-30T12:52:22.197996",
+    "end_time": "2025-12-30T13:01:30.435305",
+    "memory_used": 20480,
+    "cpu_cores_assigned": 8,
+    "cpu_cores_used": 8,
+    "final_outputs_size_bytes": 3724942,
+    "gpu_cores_used": 0,
+    "location": {
+        "address": {
+            "addressLocality": "",
+            "addressRegion": "",
+            "postalCode": "",
+            "addressCountry": ""
+        },
+        "name": ""
+    },
+    "infra": [
+        {
+            "infra_name": "Galaxy",
+            "infra_identifier": "https://identifiers.org/RRID/RRID:SCR_006281",
+            "infra_version": "25.0.4.dev0"
+        },
+        {
+            "infra_name": "HTCondor",
+            "infra_identifier": "https://identifiers.org/RRID/RRID:SCR_017664",
+            "infra_version": "0.0.not_applicable"
+        },
+        {
+            "infra_name": "https://usegalaxy.be",
+            "infra_identifier": "https://usegalaxy.be",
+            "infra_version": "0.0.not_applicable"
+        }
+    ],
+    "input_size_bytes": 51
+}

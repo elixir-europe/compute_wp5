@@ -1,0 +1,47 @@
+{
+    "report_format_version": "0.0.1",
+    "tool": {
+        "identifier": [
+            "https://bio.tools/",
+            "",
+            "toolshed.g2.bx.psu.edu/repos/iuc/jasminesv/jasminesv/1.0.11+galaxy1"
+        ],
+        "name": "JasmineSV",
+        "version": "1.0.11+galaxy1",
+        "package_version": "2b62154e39c8"
+    },
+    "start_time": "2025-12-31T10:30:30.879155",
+    "end_time": "2025-12-31T10:30:49.246250",
+    "memory_used": 3891,
+    "cpu_cores_assigned": 1,
+    "cpu_cores_used": 1,
+    "final_outputs_size_bytes": 9978,
+    "gpu_cores_used": 0,
+    "location": {
+        "address": {
+            "addressLocality": "",
+            "addressRegion": "",
+            "postalCode": "",
+            "addressCountry": ""
+        },
+        "name": ""
+    },
+    "infra": [
+        {
+            "infra_name": "Galaxy",
+            "infra_identifier": "https://identifiers.org/RRID/RRID:SCR_006281",
+            "infra_version": "25.0.4.dev0"
+        },
+        {
+            "infra_name": "HTCondor",
+            "infra_identifier": "https://identifiers.org/RRID/RRID:SCR_017664",
+            "infra_version": "0.0.not_applicable"
+        },
+        {
+            "infra_name": "https://usegalaxy.be",
+            "infra_identifier": "https://usegalaxy.be",
+            "infra_version": "0.0.not_applicable"
+        }
+    ],
+    "input_size_bytes": 2484
+}

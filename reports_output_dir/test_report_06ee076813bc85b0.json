@@ -1,0 +1,47 @@
+{
+    "report_format_version": "0.0.1",
+    "tool": {
+        "identifier": [
+            "https://bio.tools/",
+            "",
+            "toolshed.g2.bx.psu.edu/repos/galaxy-australia/alphafold2/alphafold/2.3.2+galaxy4"
+        ],
+        "name": "Alphafold 2",
+        "version": "2.3.2+galaxy4",
+        "package_version": "c62f678e5555"
+    },
+    "start_time": "2025-12-24T14:20:14.930108",
+    "end_time": "2025-12-24T19:13:18.619657",
+    "memory_used": 49152,
+    "cpu_cores_assigned": 12,
+    "cpu_cores_used": 1,
+    "final_outputs_size_bytes": 0,
+    "gpu_cores_used": 1,
+    "location": {
+        "address": {
+            "addressLocality": "",
+            "addressRegion": "",
+            "postalCode": "",
+            "addressCountry": ""
+        },
+        "name": ""
+    },
+    "infra": [
+        {
+            "infra_name": "Galaxy",
+            "infra_identifier": "https://identifiers.org/RRID/RRID:SCR_006281",
+            "infra_version": "25.0.4.dev0"
+        },
+        {
+            "infra_name": "HTCondor",
+            "infra_identifier": "https://identifiers.org/RRID/RRID:SCR_017664",
+            "infra_version": "0.0.not_applicable"
+        },
+        {
+            "infra_name": "https://usegalaxy.be",
+            "infra_identifier": "https://usegalaxy.be",
+            "infra_version": "0.0.not_applicable"
+        }
+    ],
+    "input_size_bytes": 31
+}
