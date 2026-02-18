@@ -136,12 +136,12 @@ def get_job_report(api_url, api_key, job_id, outfile):
             {
                 "infra_name": "HTCondor",
                 "infra_identifier": "https://identifiers.org/RRID/RRID:SCR_017664",
-                "infra_version": "0.0.unavailable",
+                "infra_version": "0.0.not_applicable",
             },
             {
                 "infra_name": api_url,
                 "infra_identifier": api_url,
-                "infra_version": "0.0.unavailable",
+                "infra_version": "0.0.not_applicable",
             },
         ],
         # "service_provide_name": api_url,
