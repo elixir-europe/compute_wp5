@@ -4,6 +4,7 @@ import argparse
 import json
 import requests
 from bioblend.galaxy import GalaxyInstance
+from jsonasobj2 import as_dict
 import execution_report
 
 
@@ -156,11 +157,11 @@ def get_job_report(api_url, api_key, job_id, outfile):
     }
     print("new report")
     test_report = execution_report.Report(**report)
-    print(test_report)
-    print("old report:")
-    print(json.dumps(report, indent=4))
+    # print(test_report)
+    # print("old report:")
+    # print(json.dumps(report, indent=4))
     with open(outfile, "w") as f:
-        json.dump(report, f, indent=4)
+        json.dump(as_dict(test_report), f, indent=4)
 
     print(f"Finished writing {outfile}")
 

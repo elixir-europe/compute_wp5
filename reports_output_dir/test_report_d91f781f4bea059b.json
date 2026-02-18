@@ -1,47 +1,57 @@
 {
     "report_format_version": "0.0.1",
+    "affiliation": [],
     "tool": {
+        "name": "hmmfetch",
         "identifier": [
             "https://bio.tools/",
             "",
             "toolshed.g2.bx.psu.edu/repos/iuc/hmmer_hmmfetch/hmmer_hmmfetch/3.4+galaxy0"
         ],
-        "name": "hmmfetch",
         "version": "3.4+galaxy0",
         "package_version": "34b09461bf87"
     },
-    "start_time": "2025-12-30T10:15:55.253399",
-    "end_time": "2025-12-30T10:16:09.973409",
-    "memory_used": 3891,
-    "cpu_cores_assigned": 1,
-    "cpu_cores_used": 1,
-    "final_outputs_size_bytes": 0,
-    "gpu_cores_used": 0,
-    "location": {
-        "address": {
-            "addressLocality": "",
-            "addressRegion": "",
-            "postalCode": "",
-            "addressCountry": ""
-        },
-        "name": ""
-    },
+    "input_size_bytes": 56469,
     "infra": [
         {
             "infra_name": "Galaxy",
-            "infra_identifier": "https://identifiers.org/RRID/RRID:SCR_006281",
+            "infra_identifier": [
+                "https://identifiers.org/RRID/RRID:SCR_006281"
+            ],
             "infra_version": "25.0.4.dev0"
         },
         {
             "infra_name": "HTCondor",
-            "infra_identifier": "https://identifiers.org/RRID/RRID:SCR_017664",
+            "infra_identifier": [
+                "https://identifiers.org/RRID/RRID:SCR_017664"
+            ],
             "infra_version": "0.0.not_applicable"
         },
         {
             "infra_name": "https://usegalaxy.be",
-            "infra_identifier": "https://usegalaxy.be",
+            "infra_identifier": [
+                "https://usegalaxy.be"
+            ],
             "infra_version": "0.0.not_applicable"
         }
     ],
-    "input_size_bytes": 56469
+    "location": {
+        "name": "",
+        "address": {
+            "addressCountry": "",
+            "postalCode": "",
+            "addressRegion": "",
+            "addressLocality": ""
+        }
+    },
+    "cpu_identifier": null,
+    "cpu_mods": null,
+    "cpu_cores_assigned": 1,
+    "start_time": "2025-12-30T10:15:55.253399",
+    "end_time": "2025-12-30T10:16:09.973409",
+    "duration": null,
+    "final_outputs_size_bytes": 0,
+    "memory_used": 3891,
+    "cpu_cores_used": 1,
+    "gpu_cores_used": 0
 }

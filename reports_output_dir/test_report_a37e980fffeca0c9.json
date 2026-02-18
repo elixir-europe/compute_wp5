@@ -1,47 +1,57 @@
 {
     "report_format_version": "0.0.1",
+    "affiliation": [],
     "tool": {
+        "name": "Map with Bowtie for Illumina",
         "identifier": [
             "https://bio.tools/",
             "",
             "toolshed.g2.bx.psu.edu/repos/devteam/bowtie_wrappers/bowtie_wrapper/1.2.0"
         ],
-        "name": "Map with Bowtie for Illumina",
         "version": "1.2.0",
         "package_version": "b46e7d48076a"
     },
-    "start_time": "2025-12-30T13:17:49.115218",
-    "end_time": "2025-12-30T13:18:19.440213",
-    "memory_used": 3891,
-    "cpu_cores_assigned": 1,
-    "cpu_cores_used": 1,
-    "final_outputs_size_bytes": 1333,
-    "gpu_cores_used": 0,
-    "location": {
-        "address": {
-            "addressLocality": "",
-            "addressRegion": "",
-            "postalCode": "",
-            "addressCountry": ""
-        },
-        "name": ""
-    },
+    "input_size_bytes": 31422,
     "infra": [
         {
             "infra_name": "Galaxy",
-            "infra_identifier": "https://identifiers.org/RRID/RRID:SCR_006281",
+            "infra_identifier": [
+                "https://identifiers.org/RRID/RRID:SCR_006281"
+            ],
             "infra_version": "25.0.4.dev0"
         },
         {
             "infra_name": "HTCondor",
-            "infra_identifier": "https://identifiers.org/RRID/RRID:SCR_017664",
+            "infra_identifier": [
+                "https://identifiers.org/RRID/RRID:SCR_017664"
+            ],
             "infra_version": "0.0.not_applicable"
         },
         {
             "infra_name": "https://usegalaxy.be",
-            "infra_identifier": "https://usegalaxy.be",
+            "infra_identifier": [
+                "https://usegalaxy.be"
+            ],
             "infra_version": "0.0.not_applicable"
         }
     ],
-    "input_size_bytes": 31422
+    "location": {
+        "name": "",
+        "address": {
+            "addressCountry": "",
+            "postalCode": "",
+            "addressRegion": "",
+            "addressLocality": ""
+        }
+    },
+    "cpu_identifier": null,
+    "cpu_mods": null,
+    "cpu_cores_assigned": 1,
+    "start_time": "2025-12-30T13:17:49.115218",
+    "end_time": "2025-12-30T13:18:19.440213",
+    "duration": null,
+    "final_outputs_size_bytes": 1333,
+    "memory_used": 3891,
+    "cpu_cores_used": 1,
+    "gpu_cores_used": 0
 }
