@@ -1,0 +1,57 @@
+{
+    "report_format_version": "0.0.1",
+    "affiliation": [],
+    "tool": {
+        "name": "InterProScan",
+        "identifier": [
+            "https://bio.tools/",
+            "",
+            "toolshed.g2.bx.psu.edu/repos/bgruening/interproscan/interproscan/5.59-91.0+galaxy3"
+        ],
+        "version": "5.59-91.0+galaxy3",
+        "package_version": "74810db257cc"
+    },
+    "input_size_bytes": 9728,
+    "infra": [
+        {
+            "infra_name": "Galaxy",
+            "infra_identifier": [
+                "https://identifiers.org/RRID/RRID:SCR_006281"
+            ],
+            "infra_version": "25.0.4.dev0"
+        },
+        {
+            "infra_name": "HTCondor",
+            "infra_identifier": [
+                "https://identifiers.org/RRID/RRID:SCR_017664"
+            ],
+            "infra_version": "0.0.not_applicable"
+        },
+        {
+            "infra_name": "https://usegalaxy.be",
+            "infra_identifier": [
+                "https://usegalaxy.be"
+            ],
+            "infra_version": "0.0.not_applicable"
+        }
+    ],
+    "location": {
+        "name": "",
+        "address": {
+            "addressCountry": "",
+            "postalCode": "",
+            "addressRegion": "",
+            "addressLocality": ""
+        }
+    },
+    "cpu_identifier": null,
+    "cpu_mods": null,
+    "cpu_cores_assigned": 8,
+    "start_time": "2025-12-30T10:33:43.986778",
+    "end_time": "2025-12-30T10:44:53.186129",
+    "duration": null,
+    "final_outputs_size_bytes": 0,
+    "memory_used": 40960,
+    "cpu_cores_used": 8,
+    "gpu_cores_used": 0
+}

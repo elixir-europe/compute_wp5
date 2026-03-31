@@ -1,0 +1,57 @@
+{
+    "report_format_version": "0.0.1",
+    "affiliation": [],
+    "tool": {
+        "name": "SINA",
+        "identifier": [
+            "https://bio.tools/",
+            "",
+            "toolshed.g2.bx.psu.edu/repos/iuc/sina/sina/1.7.2+galaxy0"
+        ],
+        "version": "1.7.2+galaxy0",
+        "package_version": "56d7dc39eec8"
+    },
+    "input_size_bytes": 33881,
+    "infra": [
+        {
+            "infra_name": "Galaxy",
+            "infra_identifier": [
+                "https://identifiers.org/RRID/RRID:SCR_006281"
+            ],
+            "infra_version": "25.0.4.dev0"
+        },
+        {
+            "infra_name": "HTCondor",
+            "infra_identifier": [
+                "https://identifiers.org/RRID/RRID:SCR_017664"
+            ],
+            "infra_version": "0.0.not_applicable"
+        },
+        {
+            "infra_name": "https://usegalaxy.be",
+            "infra_identifier": [
+                "https://usegalaxy.be"
+            ],
+            "infra_version": "0.0.not_applicable"
+        }
+    ],
+    "location": {
+        "name": "",
+        "address": {
+            "addressCountry": "",
+            "postalCode": "",
+            "addressRegion": "",
+            "addressLocality": ""
+        }
+    },
+    "cpu_identifier": null,
+    "cpu_mods": null,
+    "cpu_cores_assigned": 1,
+    "start_time": "2025-12-30T11:16:05.758462",
+    "end_time": "2025-12-30T11:16:37.761466",
+    "duration": null,
+    "final_outputs_size_bytes": 887,
+    "memory_used": 3891,
+    "cpu_cores_used": 1,
+    "gpu_cores_used": 0
+}

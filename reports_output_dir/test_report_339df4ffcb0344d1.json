@@ -1,0 +1,57 @@
+{
+    "report_format_version": "0.0.1",
+    "affiliation": [],
+    "tool": {
+        "name": "Bismark Mapper",
+        "identifier": [
+            "https://bio.tools/",
+            "",
+            "toolshed.g2.bx.psu.edu/repos/bgruening/bismark/bismark_bowtie2/0.22.1+galaxy4"
+        ],
+        "version": "0.22.1+galaxy4",
+        "package_version": "120b7b35e442"
+    },
+    "input_size_bytes": 68750,
+    "infra": [
+        {
+            "infra_name": "Galaxy",
+            "infra_identifier": [
+                "https://identifiers.org/RRID/RRID:SCR_006281"
+            ],
+            "infra_version": "25.0.4.dev0"
+        },
+        {
+            "infra_name": "HTCondor",
+            "infra_identifier": [
+                "https://identifiers.org/RRID/RRID:SCR_017664"
+            ],
+            "infra_version": "0.0.not_applicable"
+        },
+        {
+            "infra_name": "https://usegalaxy.be",
+            "infra_identifier": [
+                "https://usegalaxy.be"
+            ],
+            "infra_version": "0.0.not_applicable"
+        }
+    ],
+    "location": {
+        "name": "",
+        "address": {
+            "addressCountry": "",
+            "postalCode": "",
+            "addressRegion": "",
+            "addressLocality": ""
+        }
+    },
+    "cpu_identifier": null,
+    "cpu_mods": null,
+    "cpu_cores_assigned": 6,
+    "start_time": "2025-12-31T09:42:03.737302",
+    "end_time": "2025-12-31T09:42:36.078170",
+    "duration": null,
+    "final_outputs_size_bytes": 2306,
+    "memory_used": 30720,
+    "cpu_cores_used": 6,
+    "gpu_cores_used": 0
+}

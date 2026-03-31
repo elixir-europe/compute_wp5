@@ -24,3 +24,9 @@ Testing
 
   sudo apt-get install jsonschema-jv
   jv -output detailed execution_report.schema.json example.json
+
+
+.. code:: bash
+
+  job_report.py [-h] [-j JOB_ID] [-k API_KEY] [-u API_URL] [-o OUT]
+ 

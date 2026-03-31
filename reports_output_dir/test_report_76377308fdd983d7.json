@@ -1,0 +1,57 @@
+{
+    "report_format_version": "0.0.1",
+    "affiliation": [],
+    "tool": {
+        "name": "hmmconvert",
+        "identifier": [
+            "https://bio.tools/",
+            "",
+            "toolshed.g2.bx.psu.edu/repos/iuc/hmmer_hmmconvert/hmmer_hmmconvert/3.4+galaxy0"
+        ],
+        "version": "3.4+galaxy0",
+        "package_version": "a9dace1a1e36"
+    },
+    "input_size_bytes": 56356,
+    "infra": [
+        {
+            "infra_name": "Galaxy",
+            "infra_identifier": [
+                "https://identifiers.org/RRID/RRID:SCR_006281"
+            ],
+            "infra_version": "25.0.4.dev0"
+        },
+        {
+            "infra_name": "HTCondor",
+            "infra_identifier": [
+                "https://identifiers.org/RRID/RRID:SCR_017664"
+            ],
+            "infra_version": "0.0.not_applicable"
+        },
+        {
+            "infra_name": "https://usegalaxy.be",
+            "infra_identifier": [
+                "https://usegalaxy.be"
+            ],
+            "infra_version": "0.0.not_applicable"
+        }
+    ],
+    "location": {
+        "name": "",
+        "address": {
+            "addressCountry": "",
+            "postalCode": "",
+            "addressRegion": "",
+            "addressLocality": ""
+        }
+    },
+    "cpu_identifier": null,
+    "cpu_mods": null,
+    "cpu_cores_assigned": 1,
+    "start_time": "2025-12-30T09:57:01.083918",
+    "end_time": "2025-12-30T09:59:01.996802",
+    "duration": null,
+    "final_outputs_size_bytes": 47340,
+    "memory_used": 3891,
+    "cpu_cores_used": 1,
+    "gpu_cores_used": 0
+}

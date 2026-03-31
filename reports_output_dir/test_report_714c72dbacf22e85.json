@@ -1,0 +1,57 @@
+{
+    "report_format_version": "0.0.1",
+    "affiliation": [],
+    "tool": {
+        "name": "fastp",
+        "identifier": [
+            "https://bio.tools/",
+            "",
+            "toolshed.g2.bx.psu.edu/repos/iuc/fastp/fastp/1.0.1+galaxy3"
+        ],
+        "version": "1.0.1+galaxy3",
+        "package_version": "f875da9d433c"
+    },
+    "input_size_bytes": 990,
+    "infra": [
+        {
+            "infra_name": "Galaxy",
+            "infra_identifier": [
+                "https://identifiers.org/RRID/RRID:SCR_006281"
+            ],
+            "infra_version": "25.0.4.dev0"
+        },
+        {
+            "infra_name": "HTCondor",
+            "infra_identifier": [
+                "https://identifiers.org/RRID/RRID:SCR_017664"
+            ],
+            "infra_version": "0.0.not_applicable"
+        },
+        {
+            "infra_name": "https://usegalaxy.be",
+            "infra_identifier": [
+                "https://usegalaxy.be"
+            ],
+            "infra_version": "0.0.not_applicable"
+        }
+    ],
+    "location": {
+        "name": "",
+        "address": {
+            "addressCountry": "",
+            "postalCode": "",
+            "addressRegion": "",
+            "addressLocality": ""
+        }
+    },
+    "cpu_identifier": null,
+    "cpu_mods": null,
+    "cpu_cores_assigned": 4,
+    "start_time": "2025-12-31T11:33:17.832421",
+    "end_time": "2025-12-31T11:34:07.328067",
+    "duration": null,
+    "final_outputs_size_bytes": 236567,
+    "memory_used": 8192,
+    "cpu_cores_used": 1,
+    "gpu_cores_used": 0
+}

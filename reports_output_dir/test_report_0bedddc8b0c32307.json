@@ -1,0 +1,57 @@
+{
+    "report_format_version": "0.0.1",
+    "affiliation": [],
+    "tool": {
+        "name": "Convert BED to GFF",
+        "identifier": [
+            "https://bio.tools/",
+            "",
+            "CONVERTER_bed_to_gff_0"
+        ],
+        "version": "2.0.1",
+        "package_version": ""
+    },
+    "input_size_bytes": 5574,
+    "infra": [
+        {
+            "infra_name": "Galaxy",
+            "infra_identifier": [
+                "https://identifiers.org/RRID/RRID:SCR_006281"
+            ],
+            "infra_version": "25.0.4.dev0"
+        },
+        {
+            "infra_name": "HTCondor",
+            "infra_identifier": [
+                "https://identifiers.org/RRID/RRID:SCR_017664"
+            ],
+            "infra_version": "0.0.not_applicable"
+        },
+        {
+            "infra_name": "https://usegalaxy.be",
+            "infra_identifier": [
+                "https://usegalaxy.be"
+            ],
+            "infra_version": "0.0.not_applicable"
+        }
+    ],
+    "location": {
+        "name": "",
+        "address": {
+            "addressCountry": "",
+            "postalCode": "",
+            "addressRegion": "",
+            "addressLocality": ""
+        }
+    },
+    "cpu_identifier": null,
+    "cpu_mods": null,
+    "cpu_cores_assigned": 1,
+    "start_time": "2025-12-30T09:18:18.760779",
+    "end_time": "2025-12-30T09:19:44.368574",
+    "duration": null,
+    "final_outputs_size_bytes": 24789,
+    "memory_used": 3891,
+    "cpu_cores_used": 1,
+    "gpu_cores_used": 0
+}
