@@ -398,7 +398,7 @@ def _tool_info(gi, tool_id, debug=False):
         print("\n=== DEBUG: tool_details ===")
         print(json.dumps(tool_details, indent=2, default=str))
 
-    tool_name = tool_details.get("name", "")
+    tool_name = tool_details.get("name") or ""
     galaxy_wrapper_version = tool_details.get("version", "")
 
     # Conda package version from toolshed wrapper XML — the actual tool version.
@@ -416,7 +416,8 @@ def _tool_info(gi, tool_id, debug=False):
     biotools_id = ""
     rrid_uri = ""
     for ref in tool_details.get("xrefs", []):
-        if ref.get("reftype") == "bio.tools":
+        # The Galaxy API calls the xref kind "type"; older versions used "reftype"
+        if (ref.get("type") or ref.get("reftype")) == "bio.tools":
             biotools_id = ref.get("value", "")
             if biotools_id:
                 biotools_details = (
@@ -486,14 +487,14 @@ def get_job_report(api_url, api_key, job_id, outfile, debug=False, scheduler_ver
     duration = parsed["duration"]
 
     # Scheduler identity
-    tool_runner_name = parsed["batch_system"]
+    tool_runner_name = parsed["batch_system"] or ""
     if not tool_runner_name and parsed["has_slurm_env"]:
         tool_runner_name = "Slurm"
 
     # Destination params — scheduler-agnostic CPU/GPU assigned counts
     destination_info = gi.jobs.get_destination_params(job_id)
     if not tool_runner_name:
-        tool_runner_name = destination_info.get("Runner", "")
+        tool_runner_name = destination_info.get("Runner") or ""
 
     cpu_cores_assigned, gpu_cores_used = _parse_destination(
         destination_info, cpu_cores_used, debug=debug
