@@ -562,7 +562,6 @@ def get_job_report(api_url, api_key, job_id, outfile, debug=False):
         },
         "infra": _build_infra(api_url, tool_runner_name, orchestrator_version),
         "input_size_bytes": input_size,
-        **({"biotools_match_unverified": True} if biotools_match_source == "api_fallback" else {}),
     }
 
     if debug:
@@ -575,7 +574,8 @@ def get_job_report(api_url, api_key, job_id, outfile, debug=False):
         with open(outfile, "w") as f:
             json.dump(as_dict(test_report), f, indent=4)
         print(f"Finished writing {outfile}")
-    return report
+    # Not a schema field: "api_fallback" means the bio.tools ID came from a name search and is unverified
+    return {**report, "biotools_match_source": biotools_match_source or ""}
 
 
 # Usage:

@@ -5,7 +5,7 @@ import os
 from bioblend.galaxy import GalaxyInstance
 from galaxy_execution_report import get_job_report
 
-INDEX_FIELDS = ["job_id", "tool_id", "start_time", "cpu_identifier", "cpu_mods", "has_cpu_metrics"]
+INDEX_FIELDS = ["job_id", "tool_id", "start_time", "cpu_identifier", "cpu_mods", "has_cpu_metrics", "biotools_match"]
 
 def list_job_ids(api_url, api_key, since, limit, exclude_users=()):
     """Return up to `limit` IDs of finished jobs updated at or after `since` (ISO time), newest first,
@@ -37,6 +37,7 @@ def index_row(job_id, report):
         "cpu_identifier": report.get("cpu_identifier") or "",
         "cpu_mods": report.get("cpu_mods") or "",
         "has_cpu_metrics": "yes" if report.get("cpu_identifier") else "no",
+        "biotools_match": report.get("biotools_match_source", ""),
     }
 
 def main():
