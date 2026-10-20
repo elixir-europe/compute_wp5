@@ -1,0 +1,63 @@
+{
+    "report_format_version": "0.0.2",
+    "affiliation": [],
+    "tool": {
+        "name": "SPAdes",
+        "identifier": [
+            "https://bio.tools/spades",
+            "toolshed.g2.bx.psu.edu/repos/nml/spades/spades/4.3.0+galaxy2"
+        ],
+        "version": "4.3.0",
+        "package_version": "4.3.0+galaxy2"
+    },
+    "input_size_bytes": 2263912026,
+    "infra": [
+        {
+            "infra_name": "Galaxy",
+            "infra_identifier": [
+                "https://identifiers.org/RRID/RRID:SCR_006281"
+            ],
+            "infra_version": "26.1.2.dev0"
+        },
+        {
+            "infra_name": "https://usegalaxy.be",
+            "infra_identifier": [
+                "https://usegalaxy.be"
+            ],
+            "infra_version": null
+        },
+        {
+            "infra_name": "HTCondor",
+            "infra_identifier": [
+                "https://identifiers.org/RRID/RRID:SCR_017664"
+            ],
+            "infra_version": "0.0.not_applicable"
+        },
+        {
+            "infra_name": "OpenStack (VSCentrum)",
+            "infra_identifier": [
+                "https://docs.vscentrum.be/cloud/index.html"
+            ],
+            "infra_version": "0.0.not_applicable"
+        }
+    ],
+    "location": {
+        "name": "Ghent University / VSCentrum (Flemish Supercomputing Centre)",
+        "address": {
+            "addressCountry": "Belgium",
+            "postalCode": "9000",
+            "addressRegion": "East Flanders",
+            "addressLocality": "Ghent"
+        }
+    },
+    "cpu_identifier": null,
+    "cpu_mods": null,
+    "cpu_cores_assigned": 20,
+    "start_time": "2026-10-17T08:19:40",
+    "end_time": "2026-10-17T08:44:58",
+    "duration": "PT1518S",
+    "final_outputs_size_bytes": 34240775,
+    "memory_used": 18117083136,
+    "cpu_cores_used": 20,
+    "gpu_cores_used": 0
+}
