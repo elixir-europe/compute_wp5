@@ -370,7 +370,8 @@ def _build_infra(api_url, tool_runner_name, orchestrator_version, scheduler_vers
         infra.append({
             "infra_name": tool_runner_name,
             "infra_identifier": [],
-            "infra_version": scheduler_version,
+            # scheduler_version is the batch system's; Galaxy-internal runners have none of their own
+            "infra_version": "0.0.not_applicable",
         })
     infra.append({
         "infra_name": "OpenStack (VSCentrum)",
