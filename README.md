@@ -4,8 +4,10 @@ usage:
 ```sh
     job_report.py [-h] [-j JOB_ID] [-k API_KEY] [-u API_URL] [-o OUT]
 ```
-Reports for all finished jobs since a given time (UTC), uploads left out:
+Reports for the newest finished jobs since a given time (UTC), uploads and `tool_admin` jobs left out:
 ```sh
     export GALAXY_API_KEY=...   # admin key, to read other users' jobs
-    python batch_reports.py -u https://usegalaxy.be -s 2026-10-20T15:00 -o reports_output_dir
+    python batch_reports.py -u https://usegalaxy.be -s 2026-09-01T00:00 -n 2500 -o reports_v0.0.2
 ```
+Existing reports in the output directory are reused, so a stopped run can be started again.
+`reports_index.tsv` in the output directory lists each report with its CPU model and bugs, when the job has them.

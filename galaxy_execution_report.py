@@ -409,12 +409,18 @@ def _build_infra(api_url, tool_runner_name, orchestrator_version):
     return infra
 
 
-def get_job_report(api_url, api_key, job_id, outfile, debug=False):
-    gi = GalaxyInstance(api_url, api_key)
+_TOOL_INFO = {}  # tool_id → tool fields of the report, so a batch looks each tool up once
+_VERSION_INFO = {}  # api_url → Galaxy version string
 
-    # Job and tool details
-    job_details = gi.jobs.show_job(job_id, full_details=True)
-    tool_id = job_details.get("tool_id", "")
+
+def _tool_info(gi, tool_id, debug=False):
+    """
+    Return (tool_name, tool_version, galaxy_wrapper_version, tool_identifiers,
+    biotools_match_source) for a tool. Cached for the lifetime of the process.
+    """
+    if tool_id in _TOOL_INFO:
+        return _TOOL_INFO[tool_id]
+
     tool_details = gi.tools.show_tool(tool_id, io_details=True, link_details=True)
 
     if debug:
@@ -468,6 +474,20 @@ def get_job_report(api_url, api_key, job_id, outfile, debug=False):
     biotools_uri = ("https://bio.tools/" + biotools_id) if biotools_id else ""
     tool_identifiers = [id for id in [biotools_uri, rrid_uri, tool_id] if id]
 
+    _TOOL_INFO[tool_id] = (tool_name, tool_version, galaxy_wrapper_version, tool_identifiers, biotools_match_source)
+    return _TOOL_INFO[tool_id]
+
+
+def get_job_report(api_url, api_key, job_id, outfile, debug=False):
+    gi = GalaxyInstance(api_url, api_key)
+
+    # Job and tool details
+    job_details = gi.jobs.show_job(job_id, full_details=True)
+    tool_id = job_details.get("tool_id", "")
+    tool_name, tool_version, galaxy_wrapper_version, tool_identifiers, biotools_match_source = _tool_info(
+        gi, tool_id, debug=debug
+    )
+
     # Input / output dataset sizes
     input_size = 0
     for i in job_details.get("inputs", {}).values():
@@ -508,10 +528,10 @@ def get_job_report(api_url, api_key, job_id, outfile, debug=False):
     )
 
     # Galaxy version
-    version_info = gi.config.get_version()
-    orchestrator_version = (
-        version_info.get("version_major") + "." + version_info.get("version_minor")
-    )
+    if api_url not in _VERSION_INFO:
+        version_info = gi.config.get_version()
+        _VERSION_INFO[api_url] = version_info.get("version_major") + "." + version_info.get("version_minor")
+    orchestrator_version = _VERSION_INFO[api_url]
 
     report = {
         "report_format_version": "0.0.2",
@@ -555,6 +575,7 @@ def get_job_report(api_url, api_key, job_id, outfile, debug=False):
         with open(outfile, "w") as f:
             json.dump(as_dict(test_report), f, indent=4)
         print(f"Finished writing {outfile}")
+    return report
 
 
 # Usage:
