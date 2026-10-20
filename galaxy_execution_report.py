@@ -7,7 +7,6 @@ import re
 import requests
 import sys
 import urllib.parse
-import xml.etree.ElementTree as ET
 
 csv.field_size_limit(min(sys.maxsize, 10 * 1024 * 1024))  # Codex TSV has very large fields
 from bioblend.galaxy import GalaxyInstance
@@ -52,9 +51,13 @@ def _get_codex_index(debug=False):
     return _CODEX_INDEX
 
 
+_TOOLSHED_INSTALL_INFO = {}  # (tool_shed, owner, name, changeset) → list of valid_tools, cached per process
+
+
 def fetch_toolshed_package_versions(tool_details, debug=False):
     """
-    Fetch conda package versions from the toolshed wrapper XML <requirement type="package"> tags.
+    Fetch the package requirements of the tool from the Tool Shed API (install info for the
+    installed changeset). The Tool Shed resolves macro tokens such as @TOOL_VERSION@ itself.
 
     Returns list of {name, version} dicts for all package dependencies.
     """
@@ -66,6 +69,7 @@ def fetch_toolshed_package_versions(tool_details, debug=False):
             print("[DEBUG] No tool_shed_repository found in tool_details")
         return package_versions
 
+    tool_shed = tool_shed_repo.get("tool_shed", "toolshed.g2.bx.psu.edu")
     owner = tool_shed_repo.get("owner", "")
     name = tool_shed_repo.get("name", "")
     changeset_revision = tool_shed_repo.get("changeset_revision", "")
@@ -75,72 +79,37 @@ def fetch_toolshed_package_versions(tool_details, debug=False):
             print(f"[DEBUG] Incomplete tool shed info: owner={owner}, name={name}, changeset={changeset_revision}")
         return package_versions
 
-    toolshed_url = f"https://toolshed.g2.bx.psu.edu/repos/{owner}/{name}/file/{changeset_revision}/"
-    toolshed_raw_url = f"https://toolshed.g2.bx.psu.edu/repos/{owner}/{name}/raw-file/{changeset_revision}/"
+    key = (tool_shed, owner, name, changeset_revision)
+    if key not in _TOOLSHED_INSTALL_INFO:
+        url = f"https://{tool_shed}/api/repositories/get_repository_revision_install_info"
+        params = {"name": name, "owner": owner, "changeset_revision": changeset_revision}
+        try:
+            response = requests.get(url, params=params, timeout=30)
+            response.raise_for_status()
+            _TOOLSHED_INSTALL_INFO[key] = response.json()[1].get("valid_tools", [])
+        except Exception as e:
+            if debug:
+                print(f"[DEBUG] Error fetching install info from {url} {params}: {e}")
+            _TOOLSHED_INSTALL_INFO[key] = []
 
-    if debug:
-        print(f"[DEBUG] Fetching from toolshed: {toolshed_url}")
-
-    try:
-        response = requests.get(toolshed_url, timeout=10)
-        response.raise_for_status()
-
-        xml_files = re.findall(r'href="([^"]*\.xml)"', response.text)
+    # A repository can hold several tools; match on the full tool ID (guid), then the short ID
+    tool_id = tool_details.get("id", "")
+    short_tool_id = tool_id.split("/")[-2] if tool_id.count("/") >= 2 else tool_id
+    tools = _TOOLSHED_INSTALL_INFO[key]
+    tool = next((t for t in tools if t.get("guid") == tool_id), None) or next(
+        (t for t in tools if t.get("id") == short_tool_id), None
+    )
+    if tool is None:
         if debug:
-            print(f"[DEBUG] Found XML files: {xml_files}")
+            print(f"[DEBUG] Tool {tool_id} not found in install info of {key}")
+        return package_versions
 
-        # Two-pass: collect all tokens from all XML files first, then extract requirements.
-        # Tokens (e.g. @TOOL_VERSION@) are often defined in macros.xml but used in the main
-        # wrapper XML — resetting the token dict per file causes them to go unresolved.
-        roots = []
-        tokens = {}
-        for xml_file in xml_files:
-            filename = xml_file.split('/')[-1] if '/' in xml_file else xml_file
-            xml_url = toolshed_raw_url + filename
-            try:
-                xml_response = requests.get(xml_url, timeout=10)
-                xml_response.raise_for_status()
-                root = ET.fromstring(xml_response.content)
-                roots.append(root)
-                for token in root.findall(".//token"):
-                    token_name = token.get("name", "")
-                    token_value = token.text or ""
-                    if token_name:
-                        tokens[token_name] = token_value
-            except Exception as e:
+    for req in tool.get("requirements", []):
+        if req.get("type") == "package" and req.get("name") and req.get("version"):
+            if not any(p["name"] == req["name"] for p in package_versions):
+                package_versions.append({"name": req["name"], "version": req["version"]})
                 if debug:
-                    print(f"[DEBUG] Error fetching {xml_url}: {e}")
-
-        if debug:
-            print(f"[DEBUG] Resolved tokens: {tokens}")
-
-        for root in roots:
-            requirements = root.findall(".//requirement[@type='package']")
-            if not requirements:
-                requirements = root.findall(".//requirement")
-
-            for req in requirements:
-                package_name = req.text
-                package_version = req.get("version", "")
-                req_type = req.get("type", "")
-
-                if req_type != "package":
-                    continue
-
-                if package_name and package_version:
-                    if "@" in package_version:
-                        package_version = tokens.get(package_version, "")
-                        if not package_version:
-                            continue
-
-                    if not any(p['name'] == package_name for p in package_versions):
-                        package_versions.append({'name': package_name, 'version': package_version})
-                        if debug:
-                            print(f"[DEBUG] Found package: {package_name}={package_version}")
-
-    except Exception as e:
-        if debug:
-            print(f"[DEBUG] Error fetching from toolshed {toolshed_url}: {e}")
+                    print(f"[DEBUG] Found package: {req['name']}={req['version']}")
 
     return package_versions
 
@@ -370,7 +339,7 @@ def _parse_destination(destination_info, cpu_cores_used, debug=False):
     return cpu_cores_assigned, gpu_cores_used
 
 
-def _build_infra(api_url, tool_runner_name, orchestrator_version):
+def _build_infra(api_url, tool_runner_name, orchestrator_version, scheduler_version="unavailable"):
     """Build the infra list: Galaxy software, Galaxy instance, scheduler, cloud provider."""
     SCHEDULER_RRID = {
         "htcondor": ("HTCondor", "https://identifiers.org/RRID/RRID:SCR_017664"),
@@ -386,6 +355,7 @@ def _build_infra(api_url, tool_runner_name, orchestrator_version):
         {
             "infra_name": api_url,
             "infra_identifier": [api_url],
+            "infra_version": "0.0.not_applicable",
         },
     ]
     runner_key = tool_runner_name.lower()
@@ -394,13 +364,13 @@ def _build_infra(api_url, tool_runner_name, orchestrator_version):
         infra.append({
             "infra_name": sched_name,
             "infra_identifier": [sched_rrid],
-            "infra_version": "0.0.not_applicable",
+            "infra_version": scheduler_version,
         })
     elif tool_runner_name:
         infra.append({
             "infra_name": tool_runner_name,
             "infra_identifier": [],
-            "infra_version": "0.0.not_applicable",
+            "infra_version": scheduler_version,
         })
     infra.append({
         "infra_name": "OpenStack (VSCentrum)",
@@ -480,7 +450,7 @@ def _tool_info(gi, tool_id, debug=False):
     return _TOOL_INFO[tool_id]
 
 
-def get_job_report(api_url, api_key, job_id, outfile, debug=False):
+def get_job_report(api_url, api_key, job_id, outfile, debug=False, scheduler_version="unavailable"):
     gi = GalaxyInstance(api_url, api_key)
 
     # Job and tool details
@@ -562,7 +532,7 @@ def get_job_report(api_url, api_key, job_id, outfile, debug=False):
             },
             "name": "Ghent University / VSCentrum (Flemish Supercomputing Centre)",
         },
-        "infra": _build_infra(api_url, tool_runner_name, orchestrator_version),
+        "infra": _build_infra(api_url, tool_runner_name, orchestrator_version, scheduler_version),
         "input_size_bytes": input_size,
     }
 
@@ -601,8 +571,11 @@ def main():
     parser.add_argument(
         "-d", "--debug", action="store_true", help="enable debug mode (prints detailed logs, skips file write)"
     )
+    parser.add_argument(
+        "-c", "--scheduler_version", default="unavailable", help="version of the batch system, e.g. 25.0.14 (not in Galaxy job metadata)"
+    )
     args = parser.parse_args()
-    get_job_report(args.api_url, args.api_key, args.job_id, args.out, debug=args.debug)
+    get_job_report(args.api_url, args.api_key, args.job_id, args.out, debug=args.debug, scheduler_version=args.scheduler_version)
 
 
 if __name__ == "__main__":

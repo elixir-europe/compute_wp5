@@ -49,6 +49,7 @@ def main():
     parser.add_argument("-n", "--limit", type=int, default=500, help="Maximum number of jobs to report with --since, newest first")
     parser.add_argument("-k", "--api_key", default=os.environ.get("GALAXY_API_KEY"), help="API key for Galaxy (default: $GALAXY_API_KEY)")
     parser.add_argument("-u", "--api_url", required=True, help="API URL (e.g., https://usegalaxy.be)")
+    parser.add_argument("-c", "--scheduler_version", default="unavailable", help="Version of the batch system, e.g. 25.0.14 (not in Galaxy job metadata)")
     parser.add_argument("-o", "--out_dir", required=True, help="Output directory for report files")
     args = parser.parse_args()
     if not args.api_key:
@@ -74,7 +75,7 @@ def main():
                 with open(outfile) as f:
                     report = json.load(f)
             else:
-                report = get_job_report(args.api_url, args.api_key, job_id, outfile)
+                report = get_job_report(args.api_url, args.api_key, job_id, outfile, scheduler_version=args.scheduler_version)
                 print(f"Report generated for job {job_id}")
             rows.append(index_row(job_id, report))
         except Exception as e:
