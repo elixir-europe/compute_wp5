@@ -1,5 +1,5 @@
 # Auto generated from execution_report.linkml.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-06-04T17:44:44
+# Generation date: 2026-06-03T00:34:33
 # Schema: execution_report
 #
 # id: https://elixir-europe.org/platforms/compute/execution_report.linkml.yaml
@@ -374,3 +374,4 @@ slots.report__cpu_cores_used = Slot(uri=DEFAULT_.cpu_cores_used, name="report__c
 
 slots.report__gpu_cores_used = Slot(uri=DEFAULT_.gpu_cores_used, name="report__gpu_cores_used", curie=DEFAULT_.curie('gpu_cores_used'),
                    model_uri=DEFAULT_.report__gpu_cores_used, domain=None, range=Optional[int])
+

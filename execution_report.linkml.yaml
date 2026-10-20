@@ -67,10 +67,17 @@ classes:
         range: uri
         # `identifier: true`, can't be used as there is more than 1
       version:
+        description: |
+          Version of the tool that was actually run, taken from the primary conda package
+          requirement in the Galaxy toolshed wrapper XML (e.g. "0.12.1" for FastQC, "1.5.1"
+          for Salmon). This is NOT the Galaxy wrapper version, which can differ substantially
+          (e.g. FastQC wrapper "0.74+galaxy1" wraps conda package "0.12.1").
         slot_uri: schema:softwareVersion
       package_version:
         description: |
-          Version of the tool that was actually run, ideally captured from the tool itself or a packaging system (apt, conda, pip, etc..).
+          Galaxy wrapper version string as reported by the Galaxy API (e.g. "0.74+galaxy1").
+          Identifies the specific Galaxy wrapper used; useful for support and debugging but
+          distinct from the tool's own version.
         
   Report:
     description: "Tool execution report. Gives credit for the specific execution of a data analysis tool."
@@ -101,7 +108,7 @@ classes:
         range: Provider
       location:
         description: |
-          Physical location
+          Physical location of the computer where the tool was run
         range: Location
       cpu_identifier:
       cpu_mods:
