@@ -6,6 +6,7 @@ import json
 import re
 import requests
 import sys
+import urllib.parse
 import xml.etree.ElementTree as ET
 
 csv.field_size_limit(min(sys.maxsize, 10 * 1024 * 1024))  # Codex TSV has very large fields
@@ -472,7 +473,8 @@ def _tool_info(gi, tool_id, debug=False):
 
     # Only include bio.tools URI when we actually have an ID
     biotools_uri = ("https://bio.tools/" + biotools_id) if biotools_id else ""
-    tool_identifiers = [id for id in [biotools_uri, rrid_uri, tool_id] if id]
+    # Some tool IDs contain spaces, which are not valid in a URI
+    tool_identifiers = [id for id in [biotools_uri, rrid_uri, urllib.parse.quote(tool_id, safe="/:+")] if id]
 
     _TOOL_INFO[tool_id] = (tool_name, tool_version, galaxy_wrapper_version, tool_identifiers, biotools_match_source)
     return _TOOL_INFO[tool_id]
