@@ -302,14 +302,15 @@ def _parse_metrics(job_metrics, debug=False):
     # cpu_identifier / cpu_mods — only available when cpuinfo is enabled with verbose=true
     # in the job metrics config (see job_metrics_conf.xml: <cpuinfo verbose="true"/>).
     # With verbose mode the plugin writes one metric per field per processor,
-    # keyed as "processor_N_<field name>".
+    # keyed as "processor_N_<field name>". With unique=true, a field that is the same
+    # on every processor is written once as "<field name>".
     cpu_identifier = None
     cpu_mods = None
     for m in job_metrics:
         mname = m.get("name", "")
-        if re.match(r"processor_\d+_model name", mname) and cpu_identifier is None:
+        if re.fullmatch(r"(processor_\d+_)?model name", mname) and cpu_identifier is None:
             cpu_identifier = (m.get("raw_value") or "").strip()
-        if re.match(r"processor_\d+_bugs", mname) and cpu_mods is None:
+        if re.fullmatch(r"(processor_\d+_)?bugs", mname) and cpu_mods is None:
             cpu_mods = (m.get("raw_value") or "").strip()
 
     return {
