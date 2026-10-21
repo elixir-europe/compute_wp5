@@ -3,7 +3,8 @@ import csv
 import json
 import os
 from bioblend.galaxy import GalaxyInstance
-from galaxy_execution_report import get_job_report
+import urllib.parse
+from galaxy_execution_report import _tool_info, get_job_report
 
 INDEX_FIELDS = ["job_id", "tool_id", "start_time", "cpu_identifier", "cpu_mods", "has_cpu_metrics", "biotools_match"]
 
@@ -74,6 +75,11 @@ def main():
             if os.path.exists(outfile):
                 with open(outfile) as f:
                     report = json.load(f)
+                # The match source is not stored in the report; look it up again (cached per tool)
+                tool_ids = report["tool"]["identifier"]
+                if any(i.startswith("https://bio.tools/") for i in tool_ids):
+                    gi = GalaxyInstance(args.api_url, args.api_key)
+                    report["biotools_match_source"] = _tool_info(gi, urllib.parse.unquote(tool_ids[-1]))[4] or ""
             else:
                 report = get_job_report(args.api_url, args.api_key, job_id, outfile, scheduler_version=args.scheduler_version)
                 print(f"Report generated for job {job_id}")
