@@ -1,0 +1,63 @@
+{
+    "report_format_version": "0.0.2",
+    "affiliation": [],
+    "tool": {
+        "name": "Salmon quant",
+        "identifier": [
+            "https://bio.tools/salmon",
+            "toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/1.5.1+galaxy0"
+        ],
+        "version": "1.5.1",
+        "package_version": "1.5.1+galaxy0"
+    },
+    "input_size_bytes": 4336478465,
+    "infra": [
+        {
+            "infra_name": "Galaxy",
+            "infra_identifier": [
+                "https://identifiers.org/RRID/RRID:SCR_006281"
+            ],
+            "infra_version": "26.1.2.dev0"
+        },
+        {
+            "infra_name": "https://usegalaxy.be",
+            "infra_identifier": [
+                "https://usegalaxy.be"
+            ],
+            "infra_version": "0.0.not_applicable"
+        },
+        {
+            "infra_name": "HTCondor",
+            "infra_identifier": [
+                "https://identifiers.org/RRID/RRID:SCR_017664"
+            ],
+            "infra_version": "25.0.14"
+        },
+        {
+            "infra_name": "OpenStack (VSCentrum)",
+            "infra_identifier": [
+                "https://docs.vscentrum.be/cloud/index.html"
+            ],
+            "infra_version": "0.0.not_applicable"
+        }
+    ],
+    "location": {
+        "name": "Ghent University / VSCentrum (Flemish Supercomputing Centre)",
+        "address": {
+            "addressCountry": "Belgium",
+            "postalCode": "9000",
+            "addressRegion": "East Flanders",
+            "addressLocality": "Ghent"
+        }
+    },
+    "cpu_identifier": "intel core processor (broadwell, ibrs)",
+    "cpu_mods": "cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa srbds bhi ibpb_no_ret spectre_v2_user its",
+    "cpu_cores_assigned": 8,
+    "start_time": "2026-10-21T07:52:57",
+    "end_time": "2026-10-21T07:54:50",
+    "duration": "PT113S",
+    "final_outputs_size_bytes": 1703951,
+    "memory_used": 5155471360,
+    "cpu_cores_used": 8,
+    "gpu_cores_used": 0
+}

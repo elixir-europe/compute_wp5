@@ -2,14 +2,16 @@
   "report_format_version": "0.0.2",
   "affiliation": [ "https://ror.org/044rwnt51" ],
 
-  "tool_identifier": [
-    "http://toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/0.7.18" ,
-    "https://bio.tools/bwa",
-    "https://identifiers.org/RRID/RRID:SCR_010910" ],
-  "tool_name": "BWA",
-  "tool_version": "0.7.18",
-  "tool_package_version": "0.7.18-he4a0461_1",
-  "input_size": 50000,
+  "tool": {
+    "identifier": [
+      "http://toolshed.g2.bx.psu.edu/repos/devteam/bwa/bwa/0.7.18" ,
+      "https://bio.tools/bwa",
+      "https://identifiers.org/RRID/RRID:SCR_010910" ],
+    "name": "BWA",
+    "version": "0.7.18",
+    "package_version": "0.7.18-he4a0461_1"
+  },
+  "input_size_bytes": 50000,
 
   "infra": [
     { "infra_name": "de.NBI Cloud BW",
@@ -39,10 +41,10 @@
   "cpu_mods": "spectre_v1 spectre_v2 spec_store_bypass mds swapgs itlb_multihit srbds mmio_stale_data retbleed gds",
   "cpu_cores_assigned": 1,
 
-  "start_time": "2024-10-16T11:11:35",
-  "end_time": "2024-10-16T11:12:20",
+  "start_time": "2024-10-16T11:11:35Z",
+  "end_time": "2024-10-16T11:12:20Z",
 
-  "final_outputs_size": 192000,
+  "final_outputs_size_bytes": 192000,
   "memory_used": 243059916,
   "cpu_cores_used": 1,
   "gpu_cores_used": 0

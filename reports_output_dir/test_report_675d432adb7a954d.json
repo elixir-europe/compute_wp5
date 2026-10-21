@@ -1,0 +1,64 @@
+{
+    "report_format_version": "0.0.2",
+    "affiliation": [],
+    "tool": {
+        "name": "seqtk_sample",
+        "identifier": [
+            "https://bio.tools/seqtk",
+            "https://identifiers.org/RRID/RRID:SCR_018927",
+            "toolshed.g2.bx.psu.edu/repos/iuc/seqtk/seqtk_sample/1.5+galaxy0"
+        ],
+        "version": "1.5",
+        "package_version": "1.5+galaxy0"
+    },
+    "input_size_bytes": 1321511651,
+    "infra": [
+        {
+            "infra_name": "Galaxy",
+            "infra_identifier": [
+                "https://identifiers.org/RRID/RRID:SCR_006281"
+            ],
+            "infra_version": "26.1.2.dev0"
+        },
+        {
+            "infra_name": "https://usegalaxy.be",
+            "infra_identifier": [
+                "https://usegalaxy.be"
+            ],
+            "infra_version": "0.0.not_applicable"
+        },
+        {
+            "infra_name": "HTCondor",
+            "infra_identifier": [
+                "https://identifiers.org/RRID/RRID:SCR_017664"
+            ],
+            "infra_version": "25.0.14"
+        },
+        {
+            "infra_name": "OpenStack (VSCentrum)",
+            "infra_identifier": [
+                "https://docs.vscentrum.be/cloud/index.html"
+            ],
+            "infra_version": "0.0.not_applicable"
+        }
+    ],
+    "location": {
+        "name": "Ghent University / VSCentrum (Flemish Supercomputing Centre)",
+        "address": {
+            "addressCountry": "Belgium",
+            "postalCode": "9000",
+            "addressRegion": "East Flanders",
+            "addressLocality": "Ghent"
+        }
+    },
+    "cpu_identifier": null,
+    "cpu_mods": null,
+    "cpu_cores_assigned": 1,
+    "start_time": "2026-10-19T19:39:11",
+    "end_time": "2026-10-19T19:39:33",
+    "duration": "PT22S",
+    "final_outputs_size_bytes": 92434497,
+    "memory_used": 535605248,
+    "cpu_cores_used": 1,
+    "gpu_cores_used": 0
+}

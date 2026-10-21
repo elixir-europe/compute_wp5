@@ -1,172 +1,385 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://elixir-europe.org/platforms/compute/execution_report.schema.json",
-  "title": "Tool execution report",
-  "description": "Gives credit for the specific execution of a data analysis tool.",
-  "type": "object",
-  "required": [ "report_format_version", "tool_identifier", "tool_name", "infra" ],
-  "properties": {
-    "report_format_version": {
-      "description": "The version of the execution schema used.",
-      "enum": [ "0.0.2" ]
-    },
-
-    "affiliation": {
-      "description": "Identifier of the project associated with this tool execution. Ideally from the Research Organization Registry (ROR) https://ror.org/.",
-      "type": "array",
-      "items": {
-        "type": "string",
-        "format": "iri"
-      }
-    },
-
-    "tool_identifier": {
-      "description": "Tool identifier from bio.tools, an RRID, or other source. Multiple identifiers can be supplied for tools known to multiple registries.",
-      "type": "array",
-      "items": {
-        "type": "string",
-        "format": "iri"
-      },
-      "minItems": 1
-    },
-    "tool_name": {
-      "description": "What the tool author calls the tool.",
-      "type": "string"
-    },
-    "tool_version": {
-      "description": "Version of the tool that was actually run, ideally captured from the tool itself or a packaging system (apt, conda, pip, etc..).",
-      "type": "string"
-    },
-    "tool_package_version": {
-      "description": "Version of the tool as reported from a packaging system (apt, conda, pip, etc..).",
-      "type": "string"
-    },
-    "input_size": {
-      "description": "The total size of the inputs, MUST be (rounded or binned, details TBD).",
-      "type": "integer"
-    },
-
-    "infra": {
-      "description": "Physical and virtual infrastructure providers involved in the coordination, planning, and/or execution of this tool. Could be platforms, service providers, etc.",
-      "type": "array",
-      "minItems": 1,
-      "items": { "$ref": "#/$defs/provider" }
-    },
-    "location": {
-      "$ref": "#/$defs/location"
-    },
-    "cpu_identifier": {
-      "description": "For example, the 'model name' field from /proc/cpuinfo on Linux.",
-      "type": "string"
-    },
-    "cpu_mods": {
-      "description": "For example, the 'bugs' field from /proc/cpuinfo on Linux.",
-      "type": "string"
-    },
-    "cpu_cores_assigned": {
-      "description": "Number of CPU cores that were assigned to the tool.",
-      "type": "integer"
-    },
-
-    "start_time": {
-      "description": "Time & date of the beginning of tool execution.",
-      "type": "string",
-      "format": "date-time"
-    },
-    "end_time": {
-      "description": "Time & date of the end of tool execution.",
-      "type": "string",
-      "format": "date-time"
-    },
-    "duration": {
-      "description": "Duration of tool execution. Using start_time & end_time is preferred.",
-      "type": "string",
-      "format": "duration"
-    },
-
-    "final_outputs_size": {
-      "description": "Disk usage (bytes), MUST be (rounded or binned, details TBD).",
-      "type": "integer"
-    },
-    "memory_used": {
-      "description": "Peak memory usage, measured in bytes.",
-      "type": "integer",
-      "exclusiveMinimum": 0
-    },
-    "cpu_cores_used": {
-      "description": "Measured number of CPU cores used.",
-      "type": "number"
-    },
-    "gpu_cores_used": {
-      "description": "Measured number of GPU cores used.",
-      "type": "integer"
-    }
-  },
-  "$defs": {
-    "address": {
-      "title": "Address",
-      "type": "object",
-      "$comment": "https://schema.org/PostalAddress",
-      "properties": {
-        "addressCountry": {
-          "description": "Country. 2-letter ISO 3166-1 alpha-2 format.",
-          "$comment": "https://schema.org/addressCountry",
-          "type": "string"
-        },
-        "postalCode": {
-          "description": "The postal code. For example, 94017.",
-          "$comment": "https://schema.org/postalCode",
-          "type": "string"
-        },
-        "addressRegion": {
-          "description": "The region in which the locality is, and which is in the country. For example, Baden Wuerttemburg or another appropriate first-level Administrative division. ",
-          "$comment": "https://schema.org/addressRegion",
-          "type": "string"
-        },
-        "addressLocality": {
-          "description": "The locality in which the street address is, and which is in the region. For example, Freiburg im Breisgau",
-          "$comment": "https://schema.org/addressLocality",
-          "type": "string"
-        }
-      }
-    },
-    "location": {
-      "title": "Physical location",
-      "description": "Physical location where the computer was. Don't really care more than city/country.",
-      "$comment": "https://schema.org/Place",
-      "type": "object",
-        "properties": {
-          "name": {
+    "$defs": {
+        "Address": {
+            "additionalProperties": false,
             "description": "The name of the physical location where the computation took place.",
-            "type": "string",
-            "$comment": "https://schema.org/Text"
-          },
-	  "address": { "$ref": "#/$defs/address" }
-      }
-    },
-    "provider": {
-      "title": "Infrastructure provider",
-      "type": "object",
-      "required": [ "infra_name", "infra_identifier" ],
-      "properties": {
-        "infra_name": {
-          "description": "Name of the infrastructure (who should get credit).",
-          "type": "string"
+            "properties": {
+                "addressCountry": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "addressLocality": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "addressRegion": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "postalCode": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "Address",
+            "type": "object"
         },
-        "infra_identifier": {
-          "description": "Unique identifier for this infrastructure.",
-          "type": "array",
-          "items": {
-            "type": "string",
-            "format": "iri"
-          },
-          "minItems": 1
+        "Location": {
+            "additionalProperties": false,
+            "description": "Physical location where the computer was. Don't really care more than city/country.",
+            "properties": {
+                "address": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Address"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "name": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "Location",
+            "type": "object"
         },
-        "infra_version": {
-          "description": "For software-based infrastructure: the version.",
-          "type": "string"
+        "Provider": {
+            "additionalProperties": false,
+            "description": "Infrastructure provider.",
+            "properties": {
+                "infra_identifier": {
+                    "description": "Unique identifier for this infrastructure.\n",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "infra_name": {
+                    "description": "Name of the infrastructure (who should get credit).\n",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "infra_version": {
+                    "description": "For software-based infrastructure: the version.\n",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "Provider",
+            "type": "object"
+        },
+        "Report": {
+            "additionalProperties": false,
+            "description": "Tool execution report. Gives credit for the specific execution of a data analysis tool.",
+            "properties": {
+                "affiliation": {
+                    "description": "Identifier of the project associated with this tool execution. Ideally from the Research Organization Registry (ROR) https://ror.org/.\n",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "cpu_cores_assigned": {
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "cpu_cores_used": {
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "cpu_identifier": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "cpu_mods": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "duration": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "end_time": {
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "final_outputs_size_bytes": {
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "gpu_cores_used": {
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "infra": {
+                    "items": {
+                        "$ref": "#/$defs/Provider"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "input_size_bytes": {
+                    "description": "The total size of the inputs in bytes, MUST be (rounded or binned, details TBD).\n",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "location": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Location"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Physical location of the computer where the tool was run\n"
+                },
+                "memory_used": {
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "report_format_version": {
+                    "description": "The version of the execution schema used.\n",
+                    "pattern": "0.0.2",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "start_time": {
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "tool": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Tool"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                }
+            },
+            "title": "Report",
+            "type": "object"
+        },
+        "Tool": {
+            "additionalProperties": false,
+            "description": "The data analysis tool that was executed, for which this tool execution report was generated about.",
+            "properties": {
+                "identifier": {
+                    "description": "Tool identifier from bio.tools, an RRID, or other source. Multiple identifiers can be supplied for tools known to multiple registries\n",
+                    "items": {
+                        "format": "uri",
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "What the tool author calls the tool.\n",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "package_version": {
+                    "description": "Galaxy wrapper version string as reported by the Galaxy API (e.g. \"0.74+galaxy1\").\nIdentifies the specific Galaxy wrapper used; useful for support and debugging but\ndistinct from the tool's own version.\n",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "version": {
+                    "description": "Version of the tool that was actually run, taken from the primary conda package\nrequirement in the Galaxy toolshed wrapper XML (e.g. \"0.12.1\" for FastQC, \"1.5.1\"\nfor Salmon). This is NOT the Galaxy wrapper version, which can differ substantially\n(e.g. FastQC wrapper \"0.74+galaxy1\" wraps conda package \"0.12.1\").\n",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "Tool",
+            "type": "object"
         }
-      }
-    }
-  }
+    },
+    "$id": "https://elixir-europe.org/platforms/compute/execution_report.linkml.yaml",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "additionalProperties": true,
+    "description": "Tool execution report. Gives credit for the specific execution of a data analysis tool.",
+    "metamodel_version": "1.11.0",
+    "properties": {
+        "affiliation": {
+            "description": "Identifier of the project associated with this tool execution. Ideally from the Research Organization Registry (ROR) https://ror.org/.\n",
+            "items": {
+                "type": "string"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "cpu_cores_assigned": {
+            "type": [
+                "integer",
+                "null"
+            ]
+        },
+        "cpu_cores_used": {
+            "type": [
+                "integer",
+                "null"
+            ]
+        },
+        "cpu_identifier": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "cpu_mods": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "duration": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "end_time": {
+            "format": "date-time",
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "final_outputs_size_bytes": {
+            "type": [
+                "integer",
+                "null"
+            ]
+        },
+        "gpu_cores_used": {
+            "type": [
+                "integer",
+                "null"
+            ]
+        },
+        "infra": {
+            "items": {
+                "$ref": "#/$defs/Provider"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "input_size_bytes": {
+            "description": "The total size of the inputs in bytes, MUST be (rounded or binned, details TBD).\n",
+            "type": [
+                "integer",
+                "null"
+            ]
+        },
+        "location": {
+            "anyOf": [
+                {
+                    "$ref": "#/$defs/Location"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "Physical location of the computer where the tool was run\n"
+        },
+        "memory_used": {
+            "type": [
+                "integer",
+                "null"
+            ]
+        },
+        "report_format_version": {
+            "description": "The version of the execution schema used.\n",
+            "pattern": "0.0.2",
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "start_time": {
+            "format": "date-time",
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "tool": {
+            "anyOf": [
+                {
+                    "$ref": "#/$defs/Tool"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        }
+    },
+    "title": "execution_report",
+    "type": "object",
+    "version": "0.0.2"
 }
+

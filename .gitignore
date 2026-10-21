@@ -1,0 +1,5 @@
+.*venv
+# Local files that can hold user emails or command lines
+job_ids.json
+*.debug
+batch.log
