@@ -6,7 +6,7 @@
         "identifier": [
             "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_awk_tool/9.5+galaxy3"
         ],
-        "version": "9.5",
+        "version": "5.3.1",
         "package_version": "9.5+galaxy3"
     },
     "input_size_bytes": 41876,
@@ -23,14 +23,14 @@
             "infra_identifier": [
                 "https://usegalaxy.be"
             ],
-            "infra_version": null
+            "infra_version": "0.0.not_applicable"
         },
         {
             "infra_name": "HTCondor",
             "infra_identifier": [
                 "https://identifiers.org/RRID/RRID:SCR_017664"
             ],
-            "infra_version": "0.0.not_applicable"
+            "infra_version": "25.0.14"
         },
         {
             "infra_name": "OpenStack (VSCentrum)",

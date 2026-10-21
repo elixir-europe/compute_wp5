@@ -4,6 +4,7 @@
     "tool": {
         "name": "bamCoverage",
         "identifier": [
+            "https://bio.tools/deeptools",
             "toolshed.g2.bx.psu.edu/repos/bgruening/deeptools_bam_coverage/deeptools_bam_coverage/3.5.4+galaxy0"
         ],
         "version": "3.5.4",
@@ -23,14 +24,14 @@
             "infra_identifier": [
                 "https://usegalaxy.be"
             ],
-            "infra_version": null
+            "infra_version": "0.0.not_applicable"
         },
         {
             "infra_name": "HTCondor",
             "infra_identifier": [
                 "https://identifiers.org/RRID/RRID:SCR_017664"
             ],
-            "infra_version": "0.0.not_applicable"
+            "infra_version": "25.0.14"
         },
         {
             "infra_name": "OpenStack (VSCentrum)",

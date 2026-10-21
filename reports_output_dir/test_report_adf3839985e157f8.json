@@ -1,0 +1,63 @@
+{
+    "report_format_version": "0.0.2",
+    "affiliation": [],
+    "tool": {
+        "name": "CRISPResso2",
+        "identifier": [
+            "https://bio.tools/crispresso2",
+            "toolshed.g2.bx.psu.edu/repos/ieguinoa/crispresso2/crispresso2/0.1.1"
+        ],
+        "version": "2.0.45",
+        "package_version": "0.1.1"
+    },
+    "input_size_bytes": 337371502,
+    "infra": [
+        {
+            "infra_name": "Galaxy",
+            "infra_identifier": [
+                "https://identifiers.org/RRID/RRID:SCR_006281"
+            ],
+            "infra_version": "26.1.2.dev0"
+        },
+        {
+            "infra_name": "https://usegalaxy.be",
+            "infra_identifier": [
+                "https://usegalaxy.be"
+            ],
+            "infra_version": "0.0.not_applicable"
+        },
+        {
+            "infra_name": "HTCondor",
+            "infra_identifier": [
+                "https://identifiers.org/RRID/RRID:SCR_017664"
+            ],
+            "infra_version": "25.0.14"
+        },
+        {
+            "infra_name": "OpenStack (VSCentrum)",
+            "infra_identifier": [
+                "https://docs.vscentrum.be/cloud/index.html"
+            ],
+            "infra_version": "0.0.not_applicable"
+        }
+    ],
+    "location": {
+        "name": "Ghent University / VSCentrum (Flemish Supercomputing Centre)",
+        "address": {
+            "addressCountry": "Belgium",
+            "postalCode": "9000",
+            "addressRegion": "East Flanders",
+            "addressLocality": "Ghent"
+        }
+    },
+    "cpu_identifier": "intel core processor (broadwell, ibrs)",
+    "cpu_mods": "cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa srbds bhi ibpb_no_ret spectre_v2_user its",
+    "cpu_cores_assigned": 1,
+    "start_time": "2026-10-20T16:56:28",
+    "end_time": "2026-10-20T17:00:13",
+    "duration": "PT225S",
+    "final_outputs_size_bytes": 30877,
+    "memory_used": 1051848704,
+    "cpu_cores_used": 1,
+    "gpu_cores_used": 0
+}

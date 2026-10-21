@@ -4,9 +4,10 @@
     "tool": {
         "name": "Samtools stats",
         "identifier": [
+            "https://bio.tools/samtools",
             "toolshed.g2.bx.psu.edu/repos/devteam/samtools_stats/samtools_stats/2.0.9"
         ],
-        "version": "2.0.9",
+        "version": "1.22",
         "package_version": "2.0.9"
     },
     "input_size_bytes": 459915052,
@@ -23,14 +24,14 @@
             "infra_identifier": [
                 "https://usegalaxy.be"
             ],
-            "infra_version": null
+            "infra_version": "0.0.not_applicable"
         },
         {
             "infra_name": "HTCondor",
             "infra_identifier": [
                 "https://identifiers.org/RRID/RRID:SCR_017664"
             ],
-            "infra_version": "0.0.not_applicable"
+            "infra_version": "25.0.14"
         },
         {
             "infra_name": "OpenStack (VSCentrum)",

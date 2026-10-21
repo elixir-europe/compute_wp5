@@ -4,6 +4,7 @@
     "tool": {
         "name": "Samtools coverage",
         "identifier": [
+            "https://bio.tools/samtools",
             "toolshed.g2.bx.psu.edu/repos/iuc/samtools_coverage/samtools_coverage/1.22+galaxy3"
         ],
         "version": "1.22",
@@ -23,14 +24,14 @@
             "infra_identifier": [
                 "https://usegalaxy.be"
             ],
-            "infra_version": null
+            "infra_version": "0.0.not_applicable"
         },
         {
             "infra_name": "HTCondor",
             "infra_identifier": [
                 "https://identifiers.org/RRID/RRID:SCR_017664"
             ],
-            "infra_version": "0.0.not_applicable"
+            "infra_version": "25.0.14"
         },
         {
             "infra_name": "OpenStack (VSCentrum)",

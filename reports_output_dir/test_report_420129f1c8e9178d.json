@@ -5,7 +5,7 @@
         "name": "ClustalW",
         "identifier": [
             "https://bio.tools/clustal2",
-            "https://identifiers.org/RRID/RRID:SCR_002909",
+            "https://identifiers.org/RRID/RRID:SCR_017055",
             "toolshed.g2.bx.psu.edu/repos/devteam/clustalw/clustalw/2.1+galaxy1"
         ],
         "version": "2.1",
@@ -25,14 +25,14 @@
             "infra_identifier": [
                 "https://usegalaxy.be"
             ],
-            "infra_version": null
+            "infra_version": "0.0.not_applicable"
         },
         {
             "infra_name": "HTCondor",
             "infra_identifier": [
                 "https://identifiers.org/RRID/RRID:SCR_017664"
             ],
-            "infra_version": "0.0.not_applicable"
+            "infra_version": "25.0.14"
         },
         {
             "infra_name": "OpenStack (VSCentrum)",
