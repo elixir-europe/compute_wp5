@@ -18,6 +18,13 @@ Testing
 
   sudo apt-get install jsonschema-jv
   jv -output detailed execution_report.schema.json example.json
+  jv -output detailed execution_report.schema.json example_usegalaxy_be.json
+
+``execution_report.schema.json`` is generated from the LinkML schema:
+
+.. code:: bash
+
+  gen-json-schema --top-class Report execution_report.linkml.yaml > execution_report.schema.json
 
 
 .. code:: bash
